@@ -1,0 +1,231 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ── Videos ── */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  filter: blur(30px) brightness(0.3) saturate(1.5);
+  z-index: 0;
+}
+
+.fgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* ── Gradients ── */
+.gradH {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.28) 55%,
+    rgba(0,0,0,0.48) 100%
+  );
+}
+
+.gradV {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.4) 0%,
+    transparent 35%,
+    rgba(0,0,0,0.78) 100%
+  );
+}
+
+/* ── Content wrapper ── */
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 40px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.navLink {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.navLink:hover { color: #fff; }
+
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+}
+.emailBtn:hover { background: rgba(255,255,255,0.18); transform: scale(1.04); }
+
+/* ── Hero text ── */
+.textWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.tagline {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+}
+
+.name1 {
+  font-size: clamp(4rem, 13vw, 11rem);
+  color: #fff;
+}
+
+.name2 {
+  font-size: clamp(4rem, 13vw, 11rem);
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.38);
+}
+
+.subtitle {
+  margin-top: 28px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 40px 40px;
+}
+
+/* Scroll indicator */
+.scrollBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.25s;
+}
+.scrollBtn:hover { color: #fff; }
+
+.scrollLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.scrollTrack {
+  position: relative;
+  width: 1px;
+  height: 52px;
+  background: rgba(255,255,255,0.2);
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.scrollThumb {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: #fff;
+  border-radius: 1px;
+  animation: scrollPulse 1.9s ease-in-out infinite;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.soundHint {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  animation: soundPulse 2s ease-in-out infinite;
+}
+
+.glassBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+.glassBtn:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .nav { padding: 20px 20px; }
+  .navLinks { gap: 20px; }
+  .textWrap { padding: 0 20px; }
+  .bottom { padding: 0 20px 28px; }
+  .emailBtn { display: none; }
+  .soundHint { display: none; }
+}
