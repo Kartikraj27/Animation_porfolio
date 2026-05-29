@@ -1,8 +1,9 @@
 'use client'
 const PROJECTS = [
   { title: 'Cinematic Portfolio', desc: 'Award-worthy developer portfolio with Three.js & GSAP', tag: 'React · Three.js · GSAP' },
-  { title: 'GenAI Dashboard',     desc: 'AI-powered analytics platform with real-time insights',  tag: 'Next.js · OpenAI · Tailwind' },
-  { title: 'Motion UI Kit',       desc: 'Premium component library with cinematic animations',    tag: 'React · Framer Motion' },
+  { title: 'Hand-Connect',     desc: 'Real-time AR hand tracking experience with gesture-controlled neon visual effects, multi-theme cyberpunk aesthetics, and immersive audio — built entirely in the browser.',  tag: 'React.js · HTML5 · CSS3 · Bootstrap · Javascript' , link: 'https://hand-connect-ashy.vercel.app' },
+  { title: 'Scientific Calculator',       desc: 'A sleek, fully-functional scientific calculator with trigonometric, logarithmic, and exponential operations — featuring light/dark mode and a clean minimal UI.',    tag: 'HTML5 · CSS3 · Javascript' , link: 'https://scientific-calci-eight.vercel.app' },
+  {title: 'Assest System Management',    desc: 'A comprehensive company asset management system to track, assign, and manage physical assets like laptops and furniture — with real-time inventory status and employee allocation records.', tag: 'React.js · Node.js · MongoDB · Express' },
 ]
 
 export default function ProjectsSection() {
