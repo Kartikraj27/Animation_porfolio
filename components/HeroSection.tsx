@@ -84,12 +84,12 @@ export default function HeroSection() {
     <section ref={sectionRef} className={styles.hero}>
 
       {/* ── Ambient blurred BG video ── */}
-      <video ref={bgVideoRef} autoPlay unmuted loop playsInline preload="auto" className={styles.bgVideo}>
+      <video ref={bgVideoRef} autoPlay muted loop playsInline preload="auto" className={styles.bgVideo}>
         <source src="/intro.mp4" type="video/mp4" />
       </video>
 
       {/* ── Foreground video ── */}
-      <video ref={videoRef} autoPlay unmuted loop playsInline preload="auto" className={styles.fgVideo}>
+      <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className={styles.fgVideo}>
         <source src="/intro.mp4" type="video/mp4" />
       </video>
 
