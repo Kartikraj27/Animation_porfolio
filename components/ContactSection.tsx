@@ -12,7 +12,7 @@ export default function ContactSection() {
       <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', marginBottom: 40 }}>
         Get In Touch
       </h2>
-      <a href="mailto:your@email.com" style={{
+      <a href="mailto:kartikraj898708@email.com" style={{
         display: 'inline-flex', alignItems: 'center', padding: '16px 40px',
         borderRadius: 100, border: '1px solid rgba(255,140,66,0.4)',
         background: 'rgba(255,140,66,0.1)', color: '#fff', fontSize: 12,
