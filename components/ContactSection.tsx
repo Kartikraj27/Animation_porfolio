@@ -96,7 +96,7 @@ export default function ContactSection() {
               el.style.transform = 'translateY(0)'
             }}
           >
-            {/* Icon circle */}
+            {/* Icon hexagon */}
             <div style={{
               width: 52, height: 52, borderRadius: '50%',
               background: 'rgba(255,140,66,0.12)',
