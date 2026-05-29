@@ -19,7 +19,7 @@ export default function ContactSection() {
         letterSpacing: '0.22em', textTransform: 'uppercase', textDecoration: 'none',
         transition: 'background 0.3s, transform 0.3s',
       }}>
-        your@email.com
+        kartikraj898708@email.com
       </a>
     </section>
   )
