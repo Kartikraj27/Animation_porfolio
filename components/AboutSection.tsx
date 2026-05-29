@@ -10,11 +10,11 @@ export default function AboutSection() {
           About Me
         </p>
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2.5rem,7vw,5.5rem)', color: '#fff', lineHeight: 0.9, marginBottom: 32 }}>
-          Building Premium Digital Experiences
+          Frontend Developer | Data Analyst
         </h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(255,255,255,0.6)', fontWeight: 300 }}>
-          I'm a developer and designer who crafts immersive, high-performance web experiences.
-          Blending modern frontend engineering with cinematic visual storytelling and GenAI integration.
+         I’m a Frontend Developer & Data Analyst passionate about building modern, responsive, and user-focused web experiences.
+          Blending clean UI development with data-driven insights to create impactful digital solutions.
         </p>
       </div>
     </section>
