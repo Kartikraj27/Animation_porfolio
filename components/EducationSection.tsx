@@ -12,10 +12,10 @@ export default function EducationSection() {
         Selected Work
       </p>
       <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64 }}>
-        Projects
+        Education
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 24, maxWidth: 1100, margin: '0 auto' }}>
-        {PROJECTS.map(p => (
+        {EDUCATION.map(e => (
           <div key={p.title} style={{
             padding: '40px 32px', border: '1px solid rgba(255,255,255,0.08)',
             borderRadius: 16, background: 'rgba(255,255,255,0.03)',
