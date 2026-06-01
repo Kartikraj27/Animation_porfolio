@@ -16,14 +16,14 @@ export default function EducationSection() {
       </h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 24, maxWidth: 1100, margin: '0 auto' }}>
         {EDUCATION.map(e => (
-          <div key={p.title} style={{
+          <div key={e.title} style={{
             padding: '40px 32px', border: '1px solid rgba(255,255,255,0.08)',
             borderRadius: 16, background: 'rgba(255,255,255,0.03)',
             backdropFilter: 'blur(10px)', transition: 'border-color 0.3s',
           }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,140,66,0.7)', marginBottom: 14 }}>{p.tag}</p>
-            <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2rem', color: '#fff', marginBottom: 12 }}>{p.title}</h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{p.desc}</p>
+            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,140,66,0.7)', marginBottom: 14 }}>{e.tag}</p>
+            <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2rem', color: '#fff', marginBottom: 12 }}>{e.title}</h3>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{e.desc}</p>
           </div>
         ))}
       </div>
