@@ -47,40 +47,66 @@ export default function CertificatesSection() {
     <section 
       id="achievements" 
       style={{ 
-        minHeight: '80vh', 
+        minHeight: '100vh', 
         padding: '120px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.03)',
         position: 'relative',
         overflow: 'hidden',
-        // 🔥 FLUID MULTI-COLOR GRADIENT SHIFTING LOOP
-        background: 'linear-gradient(-45deg, #040108, #070617, #030a0d, #020a05)',
+        // 🔮 CINEMATIC SHIFTING SPACE GRADIENT LOOP
+        background: 'linear-gradient(-45deg, #020005, #050b14, #0b0518, #030a08)',
         backgroundSize: '400% 400%',
-        animation: 'certGradientCycle 15s ease infinite'
+        animation: 'spaceMatrixGradient 18s ease infinite'
       }}
     >
-      {/* 🛠️ AUTOMATIC INLINE KEYFRAMES FOR SMOOTH SHIFTING AUTO-PLAY BACKGROUND */}
+      {/* 🛠️ ADVANCED INFINITE 3D SPACE MATRIX ENGINE */}
       <style>{`
-        @keyframes certGradientCycle {
+        @keyframes spaceMatrixGradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
+
+        /* 🔥 DYNAMIC 3D PERSPECTIVE MESH GRID LAYER (NO TURTLES) */
+        .cyber-3d-matrix-mesh {
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background-image: 
+            linear-gradient(rgba(20, 184, 166, 0.05) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(20, 184, 166, 0.05) 2px, transparent 2px);
+          background-size: 60px 60px;
+          transform: perspective(600px) rotateX(60deg) translateY(0px);
+          animation: meshMoveInfinite 30s linear infinite;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        @keyframes meshMoveInfinite {
+          0% { transform: perspective(600px) rotateX(60deg) translateY(0px) rotate(0deg); }
+          50% { transform: perspective(600px) rotateX(55deg) translateY(-60px) rotate(1deg); }
+          100% { transform: perspective(600px) rotateX(60deg) translateY(-120px) rotate(0deg); }
+        }
       `}</style>
 
-      {/* Main content wrapper aligned smoothly above the dynamic fluid layer */}
+      {/* 🌌 VISUAL LAYER: FUTURISTIC 3D PERSPECTIVE MESH */}
+      <div className="cyber-3d-matrix-mesh"></div>
+
+      {/* Interface content panel layer sitting safely above the 3D grid layout */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
-        {/* SUBTITLE FRAMEWORK */}
+        {/* SUBTITLE */}
         <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(20, 184, 166, 0.8)', marginBottom: 20, textAlign: 'center' }}>
           Honors & Badges
         </p>
         
-        {/* PRIMARY BEBAS NEUE HEADER */}
+        {/* BEBAS NEUE HEADER */}
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
           Certificates & Achievements
         </h2>
         
-        {/* RESPONSIVE DISPLAY GRID ALIGNED WITH PROJECTS COMPONENT */}
+        {/* RESPONSIVE DISPLAY GRID INTERFACE */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(330px,1fr))', gap: 32, maxWidth: 1250, margin: '0 auto' }}>
           {ACHIEVEMENTS.map((item, index) => (
             <div 
@@ -90,24 +116,24 @@ export default function CertificatesSection() {
                 borderRadius: 20,
                 border: '1px solid rgba(255,255,255,0.06)',
                 background: 'rgba(5, 5, 10, 0.65)',
-                backdropFilter: 'blur(16px)',
+                backdropFilter: 'blur(24px)', // Glassmorphism diffraction over the mesh grid
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
-                boxShadow: '0 12px 40px -15px rgba(0,0,0,0.5)'
+                transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease',
+                boxShadow: '0 25px 55px -20px rgba(0,0,0,0.75)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
                 e.currentTarget.style.borderColor = item.tagColor;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
               }}
             >
               <div>
-                {/* Mathematical Abstract Gradient Mesh Banner Node (Fixes Image compilation crash) */}
+                {/* Abstract System Gradient Canvas Header */}
                 <div style={{ 
                   position: 'relative', 
                   width: '100%', 
@@ -126,7 +152,7 @@ export default function CertificatesSection() {
                   </span>
                 </div>
 
-                {/* Sub-tags meta tracker row */}
+                {/* Sub tags rows tracker mapping */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
                   <p style={{ fontSize: 8.5, letterSpacing: '0.18em', textTransform: 'uppercase', color: item.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {item.tag}
@@ -136,18 +162,15 @@ export default function CertificatesSection() {
                   </span>
                 </div>
 
-                {/* Certificate Main Title */}
                 <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.85rem', color: '#fff', marginBottom: 10, letterSpacing: '0.02em', lineHeight: 1.15 }}>
                   {item.title}
                 </h3>
 
-                {/* Issuing Authority Badge Context */}
                 <p style={{ fontSize: 11.5, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)', marginBottom: 18, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Auth: {item.authority}
                 </p>
 
-                {/* Verified description text framework */}
-                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.52)', lineHeight: 1.65, margin: 0, marginBottom: 10 }}>
+                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.52)', lineHeight: 1.65, margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
