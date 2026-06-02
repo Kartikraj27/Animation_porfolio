@@ -1,4 +1,4 @@
-'use client'; // Next.js standard execution safety for client-side hooks like useEffect
+'use client';
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ const educationData = [
   }
 ];
 
-const Education: React.FC = () => {
+export default function EducationSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<HTMLDivElement[]>([]);
 
@@ -43,7 +43,7 @@ const Education: React.FC = () => {
       }
     );
 
-    // Timeline Node & Card Reveal Animation
+    // Cards Reveal Animation
     cardRefs.current.forEach((card) => {
       if (!card) return;
       gsap.fromTo(
@@ -70,11 +70,11 @@ const Education: React.FC = () => {
       className="relative min-h-[70vh] bg-[#0a0a0a] text-white py-20 px-6 overflow-hidden flex flex-col justify-center"
       id="education"
     >
-      {/* Premium Cinematic Background Mesh */}
+      {/* Background Subtle Gradient Mesh */}
       <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_50%)]" />
 
       <div className="max-w-4xl mx-auto w-full relative z-10">
-        {/* Section Header */}
+        {/* Section Header (Matches Project Section Style) */}
         <div className="mb-14 edu-heading">
           <p className="text-xs font-mono tracking-[0.3em] text-neutral-500 uppercase mb-2">Academic Journey</p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral-500">
@@ -83,7 +83,7 @@ const Education: React.FC = () => {
           <div className="h-[1px] w-12 bg-neutral-700 mt-4"></div>
         </div>
 
-        {/* Timeline Dynamic Track */}
+        {/* Timeline Structural Layout */}
         <div className="relative border-l border-neutral-800 ml-2 pl-6 md:pl-8 space-y-8">
           {educationData.map((edu, idx) => (
             <div
@@ -91,13 +91,13 @@ const Education: React.FC = () => {
               ref={(el) => { if (el) cardRefs.current[idx] = el; }}
               className="relative group"
             >
-              {/* Pulsing Interactive Point */}
+              {/* Glowing Node Point */}
               <div className="absolute -left-[31px] md:-left-[39px] top-2 w-3 h-3 rounded-full bg-neutral-900 border border-neutral-700 group-hover:bg-white group-hover:border-white group-hover:shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-300" />
 
-              {/* Main Structural Layout Card */}
+              {/* Glassmorphic Project-like Card */}
               <div className="p-6 md:p-8 rounded-xl bg-neutral-900/30 border border-neutral-800/80 backdrop-blur-sm hover:border-neutral-700/60 transition-all duration-300">
                 
-                {/* Academic Metadata */}
+                {/* Year, Degree & Specialization */}
                 <div className="flex flex-col justify-between gap-1 mb-4">
                   <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block">
                     {edu.academicYear}
@@ -112,7 +112,7 @@ const Education: React.FC = () => {
 
                 <div className="border-t border-neutral-800/60 my-4"></div>
 
-                {/* College Info Block with Live Image Stream */}
+                {/* College Layout with Live Official Logo */}
                 <div className="flex items-center gap-4 mb-5">
                   <div className="relative w-14 h-14 flex-shrink-0 bg-neutral-950/80 border border-neutral-800 rounded-xl p-1.5 overflow-hidden flex items-center justify-center group-hover:border-neutral-700 transition-colors shadow-inner">
                     <Image 
@@ -133,7 +133,7 @@ const Education: React.FC = () => {
                   {edu.description}
                 </p>
 
-                {/* Conceptual Skill Chips */}
+                {/* Skills/Focus tags */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   {edu.skillsLearned.map((skill, sIdx) => (
                     <span 
@@ -152,6 +152,4 @@ const Education: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Education;
+}
