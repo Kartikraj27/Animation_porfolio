@@ -1,38 +1,108 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --orange: #ff8c42;
-  --orange-dim: rgba(255, 140, 66, 0.15);
-  --white: #fff;
-  --glass-bg: rgba(255,255,255,0.07);
-  --glass-border: rgba(255,255,255,0.15);
+/* ==========================================================================
+   PROJECTS SECTION - CYBER DEEP AQUATIC BACKDROP
+   ========================================================================== */
+.cyber-ocean-bg {
+  position: relative;
+  min-height: 100vh;
+  /* Premium Deep Teal Blue & Indigo Matrix Gradient */
+  background: linear-gradient(180deg, #04040a 0%, #030a16 50%, #06040f 100%);
+  overflow: hidden;
 }
 
-html { scroll-behavior: smooth; }
-
-body {
-  background: #000;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+/* Ambient Subtle Digital Glow Center Spot */
+.cyber-ocean-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: var(--orange-dim); border-radius: 2px; }
-
-@keyframes scrollPulse {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  30%  { opacity: 1; }
-  100% { transform: translateY(200%); opacity: 0; }
+/* --- PURE CSS TURTLE ELEMENT STRUCTURE --- */
+.turtle-asset {
+  position: absolute;
+  width: 48px;
+  height: 32px;
+  background: rgba(20, 184, 166, 0.16); /* Matrix Teal Glow */
+  border-radius: 50% 60% 60% 50%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 0 14px rgba(20, 184, 166, 0.22);
 }
 
-@keyframes soundPulse {
-  0%, 100% { opacity: 0.45; }
-  50%       { opacity: 1; }
+/* Turtle Flippers/Wings Layout */
+.turtle-asset::before, .turtle-asset::after {
+  content: "";
+  position: absolute;
+  background: rgba(20, 184, 166, 0.22);
+  border-radius: 50%;
+}
+/* Front Fins with continuous swimming wiggle */
+.turtle-asset::before {
+  width: 15px;
+  height: 25px;
+  top: -16px;
+  left: 15px;
+  transform: rotate(30deg);
+  animation: flipperWiggle 2s ease-in-out infinite alternate;
+}
+.turtle-asset::after {
+  width: 15px;
+  height: 25px;
+  bottom: -16px;
+  left: 15px;
+  transform: rotate(-30deg);
+  animation: flipperWiggle 2s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* --- ANIMATION KEYFRAMES (AUTO PLAY SYSTEMS) --- */
+@keyframes flipperWiggle {
+  0% { transform: rotate(12deg); }
+  100% { transform: rotate(42deg); }
 }
+
+/* Left-to-Right Swimming Movement (Auto-play Loops) */
+@keyframes swimLeftToRight {
+  0% {
+    left: -80px;
+    transform: translateY(0px) scaleX(1);
+  }
+  50% {
+    transform: translateY(-20px) scaleX(1);
+  }
+  100% {
+    left: 110%;
+    transform: translateY(15px) scaleX(1);
+  }
+}
+
+/* Right-to-Left Swimming Movement (Auto-play Loops) */
+@keyframes swimRightToLeft {
+  0% {
+    right: -80px;
+    transform: translateY(0px) scaleX(-1); /* Flipped Facing Left */
+  }
+  50% {
+    transform: translateY(25px) scaleX(-1);
+  }
+  100% {
+    right: 110%;
+    transform: translateY(-10px) scaleX(-1);
+  }
+}
+
+/* Individual Turtle Distribution Waves (Auto-play Coordinates) */
+.t-left-1 { top: 12%; animation: swimLeftToRight 26s linear infinite; animation-delay: 0s; }
+.t-left-2 { top: 42%; animation: swimLeftToRight 32s linear infinite; animation-delay: -6s; }
+.t-left-3 { top: 72%; animation: swimLeftToRight 24s linear infinite; animation-delay: -3s; }
+.t-left-4 { top: 28%; animation: swimLeftToRight 38s linear infinite; animation-delay: -14s; }
+
+.t-right-1 { top: 22%; animation: swimRightToLeft 30s linear infinite; animation-delay: -2s; }
+.t-right-2 { top: 52%; animation: swimRightToLeft 25s linear infinite; animation-delay: -8s; }
+.t-right-3 { top: 62%; animation: swimRightToLeft 36s linear infinite; animation-delay: -4s; }
+.t-right-4 { top: 88%; animation: swimRightToLeft 34s linear infinite; animation-delay: -11s; }
