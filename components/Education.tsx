@@ -2,17 +2,21 @@
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
-// --- FISH ANIMATION COMPONENT FOR 10TH CARD BACKGROUND ---
-function FishAquariumBackground() {
+// --- REUSABLE FISH ANIMATION COMPONENT FOR ALL THREE CARDS ---
+interface AquariumProps {
+  primaryColor: string;
+}
+
+function FishAquariumBackground({ primaryColor }: AquariumProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('3d')
     if (!ctx) return
 
-    // Resize canvas to match the card dimensions
+    // Card dimensions ke hisaab se canvas size stretch handle karna
     const resizeCanvas = () => {
       if (canvas) {
         canvas.width = canvas.parentElement?.offsetWidth || 350
@@ -22,32 +26,23 @@ function FishAquariumBackground() {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Fish Blueprint (10 Fishes)
+    // Array blueprint tracking exactly 10 fishes
     const fishes: Array<{
       x: number
       y: number
       size: number
       speed: number
-      color: string
       angle: number
       tailWiggle: number
     }> = []
 
-    const colors = [
-      'rgba(255, 140, 66, 0.4)',  // Koi Orange
-      'rgba(255, 90, 95, 0.35)',  // Coral Red
-      'rgba(255, 213, 90, 0.4)',  // Gold Fish Yellow
-      'rgba(244, 91, 105, 0.35)'  // Pinkish Glow
-    ]
-
-    // Initialize exactly 10 fishes
+    // Initialize exactly 10 floating elements
     for (let i = 0; i < 10; i++) {
       fishes.push({
         x: Math.random() * (canvas.width || 300),
         y: Math.random() * (canvas.height || 400),
-        size: Math.random() * 6 + 6, // Fish length size
-        speed: Math.random() * 0.6 + 0.3, // Swimming speed
-        color: colors[i % colors.length],
+        size: Math.random() * 5 + 6,        // Fish physical scale
+        speed: Math.random() * 0.5 + 0.25,   // Natural floating speeds
         angle: Math.random() * Math.PI * 2,
         tailWiggle: Math.random() * 100
       })
@@ -55,52 +50,52 @@ function FishAquariumBackground() {
 
     let animationFrameId: number
 
-    // Animation Loop (Auto-play system)
+    // Infinite Auto-play Animation Loop
     const animate = () => {
       if (!canvas || !ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       fishes.forEach((fish) => {
-        fish.tailWiggle += 0.15
+        fish.tailWiggle += 0.12
         
-        // Horizontal swimming logic with subtle wave behavior
+        // Continuous horizontal trajectory layout with sine waves
         fish.x += fish.speed
-        fish.y += Math.sin(fish.tailWiggle) * 0.2
+        fish.y += Math.sin(fish.tailWiggle) * 0.18
 
-        // Teleport back to left when fish goes off-screen (Looping infinity)
+        // Loop mechanics: Agar fish right se exit karegi toh left se re-enter ho jayegi
         if (fish.x - fish.size * 2 > canvas.width) {
           fish.x = -fish.size * 2
           fish.y = Math.random() * canvas.height
         }
 
-        // DRAWING THE FISH SHAPE
+        // DESIGN DRAWING PIPELINE
         ctx.save()
         ctx.translate(fish.x, fish.y)
         
-        // Smooth alpha glow trail
-        ctx.shadowBlur = 10
-        ctx.shadowColor = fish.color
+        // Subtle glow filter mirroring card theme color
+        ctx.shadowBlur = 8
+        ctx.shadowColor = primaryColor
 
-        ctx.fillStyle = fish.color
+        ctx.fillStyle = primaryColor
         ctx.beginPath()
         
-        // Fish Body (Ellipse format)
-        ctx.ellipse(0, 0, fish.size, fish.size / 2, 0, 0, Math.PI * 2)
+        // Main Body Shape
+        ctx.ellipse(0, 0, fish.size, fish.size / 2.2, 0, 0, Math.PI * 2)
         ctx.fill()
 
-        // Moving Tail Fin based on wiggle frequency
-        const wiggleX = -fish.size - (Math.sin(fish.tailWiggle) * 3)
+        // Dynamic Tail Movement Logic
+        const wiggleX = -fish.size - (Math.sin(fish.tailWiggle) * 2.5)
         ctx.beginPath()
         ctx.moveTo(-fish.size + 2, 0)
-        ctx.lineTo(wiggleX, -fish.size / 2)
-        ctx.lineTo(wiggleX, fish.size / 2)
+        ctx.lineTo(wiggleX, -fish.size / 2.2)
+        ctx.lineTo(wiggleX, fish.size / 2.2)
         ctx.closePath()
         ctx.fill()
 
         // Tiny Eye
-        ctx.fillStyle = 'rgba(255,255,255,0.6)'
+        ctx.fillStyle = 'rgba(255,255,255,0.4)'
         ctx.beginPath()
-        ctx.arc(fish.size / 2, -fish.size / 6, 1.5, 0, Math.PI * 2)
+        ctx.arc(fish.size / 2, -fish.size / 6, 1.2, 0, Math.PI * 2)
         ctx.fill()
 
         ctx.restore()
@@ -115,7 +110,7 @@ function FishAquariumBackground() {
       window.removeEventListener('resize', resizeCanvas)
       cancelAnimationFrame(animationFrameId)
     }
-  }, [])
+  }, [primaryColor])
 
   return (
     <canvas
@@ -126,7 +121,7 @@ function FishAquariumBackground() {
         left: 0,
         width: '100%',
         height: '100%',
-        pointerEvents: 'none', // Content interaction safe block
+        pointerEvents: 'none',
         zIndex: 0,
         borderRadius: 16
       }}
@@ -134,7 +129,7 @@ function FishAquariumBackground() {
   )
 }
 
-// --- DATA SYSTEM ---
+// --- DYNAMIC DATA MANAGEMENT WITH RECTIFIED DATA DETAILS ---
 const EDUCATION = [
   {
     title: 'Bachelor of Technology (B.Tech)',
@@ -143,28 +138,30 @@ const EDUCATION = [
     institution: 'Government Engineering College, Vaishali',
     logoUrl: 'https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png',
     academicYear: '2022 - 2026',
+    // Ocean Tech Cyan Gradient Background
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(26, 54, 93, 0.25) 0%, rgba(10, 10, 10, 0.4) 100%)',
-      border: '1px solid rgba(66, 153, 225, 0.15)',
-      boxShadow: '0 10px 30px -10px rgba(66, 153, 225, 0.1)'
+      background: 'linear-gradient(135deg, rgba(11, 58, 84, 0.25) 0%, rgba(5, 12, 20, 0.5) 100%)',
+      border: '1px solid rgba(0, 168, 204, 0.15)',
+      boxShadow: '0 10px 30px -10px rgba(0, 168, 204, 0.1)'
     },
-    tagColor: 'rgba(66, 153, 225, 0.85)',
-    hasFish: false
+    fishColor: 'rgba(0, 196, 237, 0.35)', // Cyan Glowing Fishes
+    tagColor: 'rgba(0, 168, 204, 0.85)'
   },
   {
     title: 'Higher Secondary (12th / Intermediate)',
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
     institution: 'Your 12th School Name, City', 
-    logoUrl: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=120&auto=format&fit=crop',
+    logoUrl: '/school.png',
     academicYear: '2020 - 2022',
+    // Emerald Deep Sea Mint Theme
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(23, 75, 47, 0.25) 0%, rgba(10, 10, 10, 0.4) 100%)',
+      background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.25) 0%, rgba(5, 12, 10, 0.5) 100%)',
       border: '1px solid rgba(72, 187, 120, 0.15)',
       boxShadow: '0 10px 30px -10px rgba(72, 187, 120, 0.1)'
     },
-    tagColor: 'rgba(72, 187, 120, 0.85)',
-    hasFish: false
+    fishColor: 'rgba(72, 187, 120, 0.35)', // Mint Green Glowing Fishes
+    tagColor: 'rgba(72, 187, 120, 0.85)'
   },
   {
     title: 'Matriculation (10th / High School)',
@@ -173,14 +170,14 @@ const EDUCATION = [
     institution: 'Doon Senior Secondary School', 
     logoUrl: '/doon-logo.png', 
     academicYear: '2019 - 2020',
-    // Aquarium Dark Blue-Purple Gradient Theme
+    // Deep Abyssal Purple/Amber Theme
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(11, 45, 69, 0.35) 0%, rgba(5, 15, 25, 0.6) 100%)',
-      border: '1px solid rgba(159, 122, 234, 0.2)',
-      boxShadow: '0 10px 35px -10px rgba(66, 153, 225, 0.2)'
+      background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.25) 0%, rgba(10, 10, 10, 0.5) 100%)',
+      border: '1px solid rgba(221, 107, 32, 0.15)',
+      boxShadow: '0 10px 35px -10px rgba(221, 107, 32, 0.1)'
     },
-    tagColor: 'rgba(159, 122, 234, 0.85)',
-    hasFish: true // Trigger element for aquarium animation
+    fishColor: 'rgba(255, 140, 66, 0.35)', // Gold/Orange Glowing Fishes
+    tagColor: 'rgba(221, 107, 32, 0.85)'
   }
 ]
 
@@ -198,20 +195,20 @@ export default function EducationSection() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 24, maxWidth: 1150, margin: '0 auto' }}>
         {EDUCATION.map((edu, index) => (
           <div key={index} style={{
-            position: 'relative', // Imp for canvas positioning
+            position: 'relative', 
             padding: '40px 32px',
             borderRadius: 16,
             backdropFilter: 'blur(10px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            overflow: 'hidden', // Contain fishes inside boundaries
+            overflow: 'hidden',
             ...edu.bgStyle
           }}>
-            {/* If true, dynamically render the active auto-playing swimming fish background */}
-            {edu.hasFish && <FishAquariumBackground />}
+            {/* Automatic Dynamic Canvas Rendering Injection for all 3 segments */}
+            <FishAquariumBackground primaryColor={edu.fishColor} />
 
-            {/* Z-Index used here to keep text content crystal clear above swimming fishes */}
+            {/* Content Layer with Z-Index configuration to float elegantly over the animated background */}
             <div style={{ position: 'relative', zIndex: 1 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10, marginBottom: 14 }}>
                 <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: edu.tagColor, margin: 0, fontWeight: 'bold' }}>
@@ -242,7 +239,7 @@ export default function EducationSection() {
                 </h4>
               </div>
 
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 4px rgba(0,0,0,0.6)' }}>
                 {edu.desc}
               </p>
             </div>
