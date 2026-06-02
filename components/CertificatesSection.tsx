@@ -48,110 +48,114 @@ export default function CertificatesSection() {
       id="achievements" 
       style={{ 
         minHeight: '100vh', 
-        padding: '120px 40px', 
+        padding: '140px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.03)',
         position: 'relative',
         overflow: 'hidden',
-        // 🌌 Deep Abyss Base Layer
-        background: '#020617',
+        // 🌌 Deep Premium Velvet Base Layer
+        background: '#010413',
       }}
     >
-      {/* 🛠️ ULTRA HD 8K/4K CINEMATIC BLUE WAVE ANIMATION ENGINE */}
+      {/* 🛠️ ULTRA BRIGHT 8K/4K LIVE BLUE WAVE INTERACTIVE ENGINE */}
       <style>{`
-        /* 🌊 Multi-layered Liquid Wave Infrastructure */
-        .classic-blue-wave-wrapper {
+        /* 🌊 Dynamic Full Page Covering Infrastructure */
+        .full-page-bright-wave-wrapper {
           position: absolute;
-          bottom: 0;
+          top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           z-index: 0;
           pointer-events: none;
-          opacity: 0.85;
+          opacity: 0.95; /* Increased opacity for absolute brightness */
           overflow: hidden;
         }
 
-        .classic-wave-layer {
+        .luminous-wave-layer {
           position: absolute;
-          bottom: -20px;
+          bottom: -50px;
           left: 0;
           width: 200%;
-          height: 60vh;
+          height: 85vh; /* Expanded height to float deep into the complete page frame */
           background-repeat: repeat-x;
           transform-origin: center bottom;
           will-change: transform;
         }
 
-        /* 8K Core Blue Gradient Vectors mapped inside custom paths */
-        .wave-layer-1 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" fill="%230c4a6e" fill-opacity="0.25"/></svg>');
+        /* 💡 LAYER 1: Neon Sky Blue Glow (Super Bright Vector Path) */
+        .bright-wave-1 {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,40L100,50C200,60,400,80,600,75C800,70,1000,40,1100,25L1200,10L1200,320L1100,320C1000,320,800,320,600,320C400,320,200,320,100,320L0,320Z" fill="%2300d2ff" fill-opacity="0.22"/></svg>');
           background-size: 50% 100%;
-          animation: classicWaveFlowMove 22s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation: luminousWaveMotion 18s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+          bottom: -20px;
           z-index: 1;
         }
 
-        .wave-layer-2 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,64L100,58.7C200,53,400,43,600,48C800,53,1000,75,1100,85.3L1200,96L1200,320L1100,320C1000,320,800,320,600,320C400,320,200,320,100,320L0,320Z" fill="%230284c7" fill-opacity="0.18"/></svg>');
+        /* 💡 LAYER 2: Electric Royal Blue Glow */
+        .bright-wave-2 {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60L120,53.3C240,47,480,33,720,40C960,47,1200,73,1320,86.7L1440,100L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" fill="%230078ff" fill-opacity="0.25"/></svg>');
           background-size: 50% 100%;
-          animation: classicWaveFlowMoveReverse 16s ease-in-out infinite;
+          animation: luminousWaveMotionReverse 14s ease-in-out infinite;
           bottom: 10px;
           z-index: 2;
         }
 
-        .wave-layer-3 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,15L150,32C300,48,600,80,900,74.7C1200,69,1500,27,1650,5.3L1800,-16L1800,320L1650,320C1500,320,1200,320,900,320C600,320,300,320,150,320L0,320Z" fill="%232563eb" fill-opacity="0.12"/></svg>');
+        /* 💡 LAYER 3: Vivid High-Definition Cyber Blue Wave */
+        .bright-wave-3 {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,20L150,35C300,50,600,80,900,70C1200,60,1500,10,1650,-15L1800,-40L1800,320L1650,320C1500,320,1200,320,900,320C600,320,300,320,150,320L0,320Z" fill="%232563eb" fill-opacity="0.18"/></svg>');
           background-size: 40% 100%;
-          animation: classicWaveFlowMove 28s linear infinite;
-          bottom: -5px;
+          animation: luminousWaveMotion 24s linear infinite;
+          bottom: -10px;
           z-index: 3;
         }
 
-        /* 🔮 Hardware Accelerated 4K Motion Loops */
-        @keyframes classicWaveFlowMove {
+        /* ⚙️ GPU Accelerated Smooth Shifting Math Nodes */
+        @keyframes luminousWaveMotion {
           0% { transform: translate3d(0, 0, 0) scaleY(1); }
-          50% { transform: translate3d(-25%, 15px, 0) scaleY(1.08); }
+          50% { transform: translate3d(-25%, 25px, 0) scaleY(1.15); } /* Increased swing for a more dynamic look */
           100% { transform: translate3d(-50%, 0, 0) scaleY(1); }
         }
 
-        @keyframes classicWaveFlowMoveReverse {
-          0% { transform: translate3d(-50%, 0, 0) scaleY(1.05); }
-          50% { transform: translate3d(-25%, -20px, 0) scaleY(0.95); }
-          100% { transform: translate3d(0, 0, 0) scaleY(1.05); }
+        @keyframes luminousWaveMotionReverse {
+          0% { transform: translate3d(-50%, 0, 0) scaleY(1.1); }
+          50% { transform: translate3d(-25%, -30px, 0) scaleY(0.9); }
+          100% { transform: translate3d(0, 0, 0) scaleY(1.1); }
         }
 
-        /* Ambient Cosmic Depth Glow Overlay to mimic an 8K display screen */
-        .cosmic-wave-glow {
+        /* ✨ HIGH BRIGHTNESS AMBIENT BACKLIGHT SPOTLIGHT OVERLAY */
+        .neon-ambient-spotlight {
           position: absolute;
-          top: -20%;
-          left: -20%;
-          width: 140%;
-          height: 140%;
-          background: radial-gradient(circle at 80% 20%, rgba(30, 64, 175, 0.15) 0%, rgba(15, 23, 42, 0) 60%);
+          top: -10%;
+          left: 10%;
+          width: 80%;
+          height: 120%;
+          background: radial-gradient(circle at 50% 80%, rgba(0, 210, 255, 0.18) 0%, rgba(0, 120, 255, 0.08) 40%, rgba(0,0,0,0) 70%);
           z-index: 0;
           pointer-events: none;
+          filter: blur(40px);
         }
       `}</style>
 
-      {/* 🌊 VISUAL LAYER: ULTRA HD CLASSIC BLUE WALLPAPER MOVING WAVES */}
-      <div className="classic-blue-wave-wrapper">
-        <div className="classic-wave-layer wave-layer-1"></div>
-        <div className="classic-wave-layer wave-layer-2"></div>
-        <div className="classic-wave-layer wave-layer-3"></div>
+      {/* 🌊 VISUAL LAYER: FULL PAGE BRIGHT BLUE LIVE WALLPAPER WAVES */}
+      <div className="full-page-bright-wave-wrapper">
+        <div className="luminous-wave-layer bright-wave-1"></div>
+        <div className="luminous-wave-layer bright-wave-2"></div>
+        <div className="luminous-wave-layer bright-wave-3"></div>
       </div>
       
-      {/* 🔮 VISUAL LAYER: 4K HIGH RESOLUTION NEON AMBIENT DEPTH RADIUS */}
-      <div className="cosmic-wave-glow"></div>
+      {/* 💡 VISUAL LAYER: EXTRA BRIGHT NEON ATMOSPHERIC RADIAL BACKLIGHT */}
+      <div className="neon-ambient-spotlight"></div>
 
-      {/* Interface core panel wrapper sitting securely over the wave animations */}
+      {/* Interface panel grid structure wrapped safely over the luminous wave framework */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
         {/* SUBTITLE */}
-        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(56, 189, 248, 0.8)', marginBottom: 20, textAlign: 'center' }}>
+        <p style={{ fontSize: 10, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#00d2ff', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 12px rgba(0,210,255,0.4)' }}>
           Honors & Badges
         </p>
         
-        {/* PRIMARY BEBAS NEUE HEADER MAP */}
-        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
+        {/* PRIMARY BEBAS NEUE HEADER */}
+        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5.5rem)', color: '#fff', textAlign: 'center', marginBottom: 80, letterSpacing: '0.02em', textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>
           Certificates & Achievements
         </h2>
         
@@ -161,24 +165,26 @@ export default function CertificatesSection() {
             <div 
               key={index} 
               style={{
-                padding: '32px',
-                borderRadius: 20,
-                border: '1px solid rgba(255,255,255,0.05)',
-                background: 'rgba(15, 23, 42, 0.65)',
-                backdropFilter: 'blur(28px)', // Elite frosted crystal layout
+                padding: '36px 32px',
+                borderRadius: 24,
+                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'rgba(6, 11, 28, 0.55)', // Slightly translucent dark canvas for ultra bright backlight passage
+                backdropFilter: 'blur(32px)', // Super polished frost glass crystal look
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease',
-                boxShadow: '0 30px 60px -25px rgba(0,0,0,0.6)'
+                transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease',
+                boxShadow: '0 30px 60px -20px rgba(0,0,0,0.7)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
+                e.currentTarget.style.transform = 'translateY(-10px)';
                 e.currentTarget.style.borderColor = item.tagColor;
+                e.currentTarget.style.boxShadow = `0 20px 40px -15px ${item.tagColor}40`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.boxShadow = '0 30px 60px -20px rgba(0,0,0,0.7)';
               }}
             >
               <div>
@@ -186,40 +192,40 @@ export default function CertificatesSection() {
                 <div style={{ 
                   position: 'relative', 
                   width: '100%', 
-                  height: '140px', 
-                  borderRadius: 12, 
-                  marginBottom: 24, 
+                  height: '145px', 
+                  borderRadius: 14, 
+                  marginBottom: 26, 
                   background: item.meshStyle,
-                  opacity: 0.7,
+                  opacity: 0.8, // Boosted background block opacity for color balance
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   border: '1px solid rgba(255,255,255,0.05)'
                 }}>
-                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                     Credential Node // 0{index + 1}
                   </span>
                 </div>
 
                 {/* Sub tags tracking grid row */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-                  <p style={{ fontSize: 8.5, letterSpacing: '0.18em', textTransform: 'uppercase', color: item.tagColor, margin: 0, fontWeight: 'bold' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+                  <p style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: item.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {item.tag}
                   </p>
-                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.25)' }}>
+                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.35)' }}>
                     {item.date}
                   </span>
                 </div>
 
-                <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.85rem', color: '#fff', marginBottom: 10, letterSpacing: '0.02em', lineHeight: 1.15 }}>
+                <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.95rem', color: '#fff', marginBottom: 12, letterSpacing: '0.02em', lineHeight: 1.15 }}>
                   {item.title}
                 </h3>
 
-                <p style={{ fontSize: 11.5, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)', marginBottom: 18, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <p style={{ fontSize: 11.5, fontFamily: 'monospace', color: 'rgba(255,255,255,0.45)', marginBottom: 18, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Auth: {item.authority}
                 </p>
 
-                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.52)', lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
