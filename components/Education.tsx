@@ -13,7 +13,7 @@ function FishAquariumBackground({ primaryColor }: AquariumProps) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('3d')
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     // Card dimensions ke hisaab se canvas size stretch handle karna
