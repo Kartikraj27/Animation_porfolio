@@ -1,17 +1,18 @@
 import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import ProjectsSection from '@/components/ProjectsSection'
-import EducationSection from '../components/Education' // Humne relative path use kiya jo 100% resolve ho jayega
+import EducationSection from '@/components/EducationSection' // Default component matching import structure
 import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
   return (
-    <main className="bg-[#0a0a0a] min-h-screen overflow-hidden">
+    <main>
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
       
-      <EducationSection /> 
+      {/* Education block rendered smoothly using the exact same style system */}
+      <EducationSection />
       
       <ContactSection />
     </main>
