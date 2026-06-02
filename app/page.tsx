@@ -1,7 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import ProjectsSection from '@/components/ProjectsSection'
-import EducationSection from '@/components/Education' // Default import clear path ke sath
+import EducationSection from '../components/Education' // Humne relative path use kiya jo 100% resolve ho jayega
 import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
@@ -11,7 +11,6 @@ export default function Home() {
       <AboutSection />
       <ProjectsSection />
       
-      {/* Education Section ab bina kisi crash ke Projects ke baad visible hoga */}
       <EducationSection /> 
       
       <ContactSection />
