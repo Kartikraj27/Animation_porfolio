@@ -1,7 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import ProjectsSection from '@/components/ProjectsSection'
-import EducationSection from '@/components/EducationSection' // Default component matching import structure
+import EducationSection from '@/components/EducationSection' // Exact same naming structure matching projects
 import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <AboutSection />
       <ProjectsSection />
       
-      {/* Education block rendered smoothly using the exact same style system */}
+      {/* Education section rendered here in perfect sequence */}
       <EducationSection />
       
       <ContactSection />
