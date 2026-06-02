@@ -155,7 +155,7 @@ const EDUCATION = [
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
     institution: 'Your 12th School Name, City', 
-    logoUrl: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=120&auto=format&fit=crop',
+    logoUrl: '/school.png',
     academicYear: '2020 - 2022',
     bgStyle: {
       background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.25) 0%, rgba(5, 12, 10, 0.5) 100%)',
