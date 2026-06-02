@@ -9,7 +9,7 @@ const PROJECTS = [
     desc: 'Award-worthy developer portfolio engineered with highly interactive custom canvas components, sleek operational layouts, and seamless spatial motion frameworks utilizing Three.js & GSAP.',
     tag: 'React · Three.js · GSAP',
     timeline: '2026',
-    demoUrl: '#',
+    demoUrl: 'https://animation-porfolio-iota.vercel.app/',
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.12) 0%, rgba(5, 5, 10, 0.6) 100%)',
       border: '1px solid rgba(20, 184, 166, 0.15)', 
@@ -63,21 +63,6 @@ const PROJECTS = [
     meshStyle: 'linear-gradient(45deg, #0284c7 0%, #0c4a6e 100%)',
     tagColor: 'rgba(14, 165, 233, 0.9)',
     btnText: 'Open Live Calci'
-  },
-  {
-    title: 'All India Naukri Campus Aptitude Test (AINCAT)',
-    desc: 'Successfully evaluated in India’s biggest nationwide career aptitude benchmark evaluation assessment matrix. Verified strong analytical baseline, problem-solving efficiency, and quantitative reasoning modules mapped across top-tier enterprise recruitment standards.',
-    tag: 'National Evaluation Assessment',
-    timeline: 'May 2026',
-    demoUrl: '#',
-    cardStyle: {
-      background: 'linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(6, 4, 15, 0.7) 100%)',
-      border: '1px solid rgba(234, 179, 8, 0.25)', 
-      boxShadow: '0 12px 45px -15px rgba(234, 179, 8, 0.12)'
-    },
-    meshStyle: 'linear-gradient(45deg, #ca8a04 0%, #713f12 100%)',
-    tagColor: 'rgba(234, 179, 8, 0.95)', 
-    btnText: 'Verify Credential ID'
   }
 ]
 
@@ -114,7 +99,7 @@ export default function ProjectsSection() {
         </p>
         
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
-          Featured Projects
+          Projects
         </h2>
         
         {/* RESPONSIVE MESH SECTIONS DISPLAY GRID */}
