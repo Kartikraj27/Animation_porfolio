@@ -2,7 +2,7 @@
 import Image from 'next/image'
 
 // ==========================================================================
-// 🎯 DYNAMIC PROJECTS & CREDENTIALS ARRAYS WITH REAL LINKS & SKILLS
+// 🎯 ERROR-FREE DATA ARRAY WITH CORRECT KEY PARAMETERS
 // ==========================================================================
 const PROJECTS = [
   {
@@ -43,7 +43,7 @@ const PROJECTS = [
     demoUrl: '#',
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(5, 5, 10, 0.6) 100%)',
-      border: '1px solid rgba(239, 68, 68, 0.15)', // Subtle crimson crimson tracking asset system
+      border: '1px solid rgba(239, 68, 68, 0.15)', 
       boxShadow: '0 12px 40px -15px rgba(239, 68, 68, 0.08)'
     },
     tagColor: 'rgba(239, 68, 68, 0.9)',
@@ -90,36 +90,35 @@ export default function ProjectsSection() {
       style={{ 
         padding: '120px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.03)',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
       
-      {/* 🐢 LEFT-TO-RIGHT SWIMMING TURTLES ASSETS (AUTO-PLAY VIA GLOBAL.CSS SYSTEM) */}
+      {/* 🐢 LEFT-TO-RIGHT SWIMMING TURTLES ASSETS */}
       <div className="turtle-asset t-left-1"></div>
       <div className="turtle-asset t-left-2"></div>
       <div className="turtle-asset t-left-3"></div>
       <div className="turtle-asset t-left-4"></div>
 
-      {/* 🐢 RIGHT-TO-LEFT SWIMMING TURTLES ASSETS (AUTO-PLAY VIA GLOBAL.CSS SYSTEM) */}
+      {/* 🐢 RIGHT-TO-LEFT SWIMMING TURTLES ASSETS */}
       <div className="turtle-asset t-right-1"></div>
       <div className="turtle-asset t-right-2"></div>
       <div className="turtle-asset t-right-3"></div>
       <div className="turtle-asset t-right-4"></div>
 
-      {/* Main interface content layer */}
+      {/* Main interface wrapper */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
-        {/* SUBTITLE */}
         <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(20, 184, 166, 0.8)', marginBottom: 20, textAlign: 'center' }}>
           Selected Work & Production Pipelines
         </p>
         
-        {/* BEBAS NEUE PRIMARY HEADER */}
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
           Featured Projects
         </h2>
         
-        {/* BALANCED STRUCTURAL RESPONSIVE GRID */}
+        {/* RESPONSIVE DISPLAY GRID */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(330px,1fr))', gap: 32, maxWidth: 1250, margin: '0 auto' }}>
           {PROJECTS.map((proj, index) => (
             <div 
@@ -138,7 +137,7 @@ export default function ProjectsSection() {
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
               <div>
-                {/* Embedded High Quality Mesh Image Wrapper */}
+                {/* 100% SECURE IMAGE BOX WRAPPER */}
                 <div style={{ position: 'relative', width: '100%', height: '190px', overflow: 'hidden', borderRadius: 12, marginBottom: 24, border: '1px solid rgba(255,255,255,0.05)', background: '#050508' }}>
                   <Image 
                     src={proj.imgUrl} 
@@ -149,7 +148,6 @@ export default function ProjectsSection() {
                   />
                 </div>
 
-                {/* Sub-tags row metadata tracker */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
                   <p style={{ fontSize: 8.5, letterSpacing: '0.2em', textTransform: 'uppercase', color: proj.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {proj.tag}
@@ -159,43 +157,24 @@ export default function ProjectsSection() {
                   </span>
                 </div>
 
-                {/* Individual Title parameters */}
                 <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.85rem', color: '#fff', marginBottom: 14, letterSpacing: '0.02em', lineHeight: 1.15 }}>
                   {proj.title}
                 </h3>
 
-                {/* Explicit customized description */}
                 <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.52)', lineHeight: 1.65, margin: 0, marginBottom: 26 }}>
                   {proj.desc}
                 </p>
               </div>
 
-              {/* Dynamic CTA Anchor node */}
+              {/* ACTION TRIGGER BUTTON */}
               <a 
                 href={proj.demoUrl} 
                 target={proj.demoUrl !== '#' ? '_blank' : '_self'}
                 rel="noopener noreferrer"
                 style={{
-                  display: 'inline-flex', alignItems: 'center', justifyCenter: 'center',
-                  padding: '12px 20px', borderRadius: 8, background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)', color: '#fff', fontSize: 12.5, fontWeight: 500, textDecoration: 'none',
-                  textAlign: 'center', justifyContent: 'center', transition: 'all 0.25s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = proj.tagColor;
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
-                }}
-              >
-                {proj.btnText}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  padding: '12px 20px', 
+                  borderRadius: 8, 
+                  background
