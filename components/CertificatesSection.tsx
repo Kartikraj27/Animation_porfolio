@@ -52,14 +52,14 @@ export default function CertificatesSection() {
         borderTop: '1px solid rgba(255,255,255,0.03)',
         position: 'relative',
         overflow: 'hidden',
-        // 🌌 Deep Premium Velvet Base Layer
-        background: '#010413',
+        // 🌌 Deep Ultra-HD Dark Canvas
+        background: '#010311',
       }}
     >
-      {/* 🛠️ ULTRA BRIGHT 8K/4K LIVE BLUE WAVE INTERACTIVE ENGINE */}
+      {/* 🛠️ FULL-SCREEN HIGH-INTENSITY LIVE BLUE WAVE CANVAS ENGINE */}
       <style>{`
-        /* 🌊 Dynamic Full Page Covering Infrastructure */
-        .full-page-bright-wave-wrapper {
+        /* 🌊 Pure Full Page Covering Wrapper */
+        .total-page-wave-container {
           position: absolute;
           top: 0;
           left: 0;
@@ -67,95 +67,101 @@ export default function CertificatesSection() {
           height: 100%;
           z-index: 0;
           pointer-events: none;
-          opacity: 0.95; /* Increased opacity for absolute brightness */
           overflow: hidden;
         }
 
-        .luminous-wave-layer {
-          position: absolute;
-          bottom: -50px;
-          left: 0;
-          width: 200%;
-          height: 85vh; /* Expanded height to float deep into the complete page frame */
-          background-repeat: repeat-x;
-          transform-origin: center bottom;
-          will-change: transform;
-        }
-
-        /* 💡 LAYER 1: Neon Sky Blue Glow (Super Bright Vector Path) */
-        .bright-wave-1 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,40L100,50C200,60,400,80,600,75C800,70,1000,40,1100,25L1200,10L1200,320L1100,320C1000,320,800,320,600,320C400,320,200,320,100,320L0,320Z" fill="%2300d2ff" fill-opacity="0.22"/></svg>');
-          background-size: 50% 100%;
-          animation: luminousWaveMotion 18s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-          bottom: -20px;
-          z-index: 1;
-        }
-
-        /* 💡 LAYER 2: Electric Royal Blue Glow */
-        .bright-wave-2 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60L120,53.3C240,47,480,33,720,40C960,47,1200,73,1320,86.7L1440,100L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" fill="%230078ff" fill-opacity="0.25"/></svg>');
-          background-size: 50% 100%;
-          animation: luminousWaveMotionReverse 14s ease-in-out infinite;
-          bottom: 10px;
-          z-index: 2;
-        }
-
-        /* 💡 LAYER 3: Vivid High-Definition Cyber Blue Wave */
-        .bright-wave-3 {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,20L150,35C300,50,600,80,900,70C1200,60,1500,10,1650,-15L1800,-40L1800,320L1650,320C1500,320,1200,320,900,320C600,320,300,320,150,320L0,320Z" fill="%232563eb" fill-opacity="0.18"/></svg>');
-          background-size: 40% 100%;
-          animation: luminousWaveMotion 24s linear infinite;
-          bottom: -10px;
-          z-index: 3;
-        }
-
-        /* ⚙️ GPU Accelerated Smooth Shifting Math Nodes */
-        @keyframes luminousWaveMotion {
-          0% { transform: translate3d(0, 0, 0) scaleY(1); }
-          50% { transform: translate3d(-25%, 25px, 0) scaleY(1.15); } /* Increased swing for a more dynamic look */
-          100% { transform: translate3d(-50%, 0, 0) scaleY(1); }
-        }
-
-        @keyframes luminousWaveMotionReverse {
-          0% { transform: translate3d(-50%, 0, 0) scaleY(1.1); }
-          50% { transform: translate3d(-25%, -30px, 0) scaleY(0.9); }
-          100% { transform: translate3d(0, 0, 0) scaleY(1.1); }
-        }
-
-        /* ✨ HIGH BRIGHTNESS AMBIENT BACKLIGHT SPOTLIGHT OVERLAY */
-        .neon-ambient-spotlight {
+        /* Waves are stretched using height: 100% and top: 0 to eliminate bottom lock */
+        .full-ambient-wave {
           position: absolute;
           top: -10%;
-          left: 10%;
-          width: 80%;
+          left: 0;
+          width: 250%;
           height: 120%;
-          background: radial-gradient(circle at 50% 80%, rgba(0, 210, 255, 0.18) 0%, rgba(0, 120, 255, 0.08) 40%, rgba(0,0,0,0) 70%);
+          background-repeat: repeat;
+          background-size: 50% 50%;
+          will-change: transform;
+          opacity: 0.28; /* High visibility bright index for absolute neon layout */
+        }
+
+        /* 💡 LAYER 1: Neon Cyan Cyber Wave (Floats diagonally across the whole page) */
+        .wave-vivid-cyan {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,150 C300,300 600,50 900,350 C1200,500 1500,200 1800,400 L1800,600 L0,600 Z" fill="%2300d2ff"/></svg>');
+          animation: globalWaveMotion1 24s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+        }
+
+        /* 💡 LAYER 2: Electric Deep Sapphire Blue Wave */
+        .wave-vivid-electric {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,350 C400,100 800,450 1200,200 C1600,50 2000,400 2400,150 L2400,600 L0,600 Z" fill="%230066ff"/></svg>');
+          animation: globalWaveMotion2 18s ease-in-out infinite;
+          opacity: 0.24;
+        }
+
+        /* 💡 LAYER 3: Bright Neon Azure Glow Matrix Line */
+        .wave-vivid-azure {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,200 C300,50 600,400 900,150 C1200,-50 1500,300 1800,100 L1800,600 L0,600 Z" fill="%231e40af"/></svg>');
+          animation: globalWaveMotion1 32s linear infinite;
+          opacity: 0.3;
+        }
+
+        /* ⚙️ 4K Dual-Axis (X and Y displacement) Floating Animations */
+        @keyframes globalWaveMotion1 {
+          0% {
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+          }
+          50% {
+            transform: translate3d(-30%, -40px, 0) rotate(2deg) scale(1.05);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0) rotate(0deg) scale(1);
+          }
+        }
+
+        @keyframes globalWaveMotion2 {
+          0% {
+            transform: translate3d(-50%, 0, 0) rotate(0deg) scale(1.05);
+          }
+          50% {
+            transform: translate3d(-20%, 50px, 0) rotate(-2deg) scale(0.95);
+          }
+          100% {
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1.05);
+          }
+        }
+
+        /* 🔥 BRIGHT ENERGY SPOTLIGHT CENTRE OVERLAY */
+        .page-center-neon-glow {
+          position: absolute;
+          top: 25%;
+          left: 15%;
+          width: 70%;
+          height: 60%;
+          background: radial-gradient(circle, rgba(0, 210, 255, 0.16) 0%, rgba(0, 102, 255, 0.05) 50%, transparent 80%);
           z-index: 0;
           pointer-events: none;
-          filter: blur(40px);
+          filter: blur(60px);
         }
       `}</style>
 
-      {/* 🌊 VISUAL LAYER: FULL PAGE BRIGHT BLUE LIVE WALLPAPER WAVES */}
-      <div className="full-page-bright-wave-wrapper">
-        <div className="luminous-wave-layer bright-wave-1"></div>
-        <div className="luminous-wave-layer bright-wave-2"></div>
-        <div className="luminous-wave-layer bright-wave-3"></div>
+      {/* 🌊 VISUAL LAYER: COVERS ENTIRE VERTICAL AND HORIZONTAL VIEWPORT */}
+      <div className="total-page-wave-container">
+        <div className="full-ambient-wave wave-vivid-cyan"></div>
+        <div className="full-ambient-wave wave-vivid-electric"></div>
+        <div className="full-ambient-wave wave-vivid-azure"></div>
       </div>
       
-      {/* 💡 VISUAL LAYER: EXTRA BRIGHT NEON ATMOSPHERIC RADIAL BACKLIGHT */}
-      <div className="neon-ambient-spotlight"></div>
+      {/* 💡 VISUAL LAYER: CENTRE CORE AMBIENT BACKLIGHT */}
+      <div className="page-center-neon-glow"></div>
 
-      {/* Interface panel grid structure wrapped safely over the luminous wave framework */}
+      {/* Core data grid layout layer */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
         {/* SUBTITLE */}
-        <p style={{ fontSize: 10, letterSpacing: '0.42em', textTransform: 'uppercase', color: '#00d2ff', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 12px rgba(0,210,255,0.4)' }}>
+        <p style={{ fontSize: 10, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#00d2ff', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 15px rgba(0,210,255,0.5)' }}>
           Honors & Badges
         </p>
         
-        {/* PRIMARY BEBAS NEUE HEADER */}
-        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5.5rem)', color: '#fff', textAlign: 'center', marginBottom: 80, letterSpacing: '0.02em', textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>
+        {/* PRIMARY BEBAS NEUE HEADER MAP */}
+        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5.5rem)', color: '#fff', textAlign: 'center', marginBottom: 80, letterSpacing: '0.02em', textShadow: '0 5px 25px rgba(0,0,0,0.7)' }}>
           Certificates & Achievements
         </h2>
         
@@ -167,24 +173,24 @@ export default function CertificatesSection() {
               style={{
                 padding: '36px 32px',
                 borderRadius: 24,
-                border: '1px solid rgba(255,255,255,0.08)',
-                background: 'rgba(6, 11, 28, 0.55)', // Slightly translucent dark canvas for ultra bright backlight passage
-                backdropFilter: 'blur(32px)', // Super polished frost glass crystal look
+                border: '1px solid rgba(255,255,255,0.09)',
+                background: 'rgba(5, 10, 25, 0.48)', // Crystal ultra transparency to pass full-page waves bright look
+                backdropFilter: 'blur(35px)', // Premium blur layer 
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 30px 60px -20px rgba(0,0,0,0.7)'
+                boxShadow: '0 30px 65px -20px rgba(0,0,0,0.75)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-10px)';
                 e.currentTarget.style.borderColor = item.tagColor;
-                e.currentTarget.style.boxShadow = `0 20px 40px -15px ${item.tagColor}40`;
+                e.currentTarget.style.boxShadow = `0 25px 50px -15px ${item.tagColor}45`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                e.currentTarget.style.boxShadow = '0 30px 60px -20px rgba(0,0,0,0.7)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)';
+                e.currentTarget.style.boxShadow = '0 30px 65px -20px rgba(0,0,0,0.75)';
               }}
             >
               <div>
@@ -196,7 +202,7 @@ export default function CertificatesSection() {
                   borderRadius: 14, 
                   marginBottom: 26, 
                   background: item.meshStyle,
-                  opacity: 0.8, // Boosted background block opacity for color balance
+                  opacity: 0.85, 
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
