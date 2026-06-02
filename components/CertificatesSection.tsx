@@ -52,13 +52,13 @@ export default function CertificatesSection() {
         borderTop: '1px solid rgba(255,255,255,0.03)',
         position: 'relative',
         overflow: 'hidden',
-        // 🔮 CINEMATIC SHIFTING SPACE GRADIENT LOOP
+        // 🔮 AMBIENT SHIFTING SPACE MATRIX BACKGROUND
         background: 'linear-gradient(-45deg, #020005, #050b14, #0b0518, #030a08)',
         backgroundSize: '400% 400%',
         animation: 'spaceMatrixGradient 18s ease infinite'
       }}
     >
-      {/* 🛠️ ADVANCED INFINITE 3D SPACE MATRIX ENGINE */}
+      {/* 🛠️ ADVANCED SMOOTH INTERACTIVE 3D PERSPECTIVE PERSISTENT ENGINE */}
       <style>{`
         @keyframes spaceMatrixGradient {
           0% { background-position: 0% 50%; }
@@ -66,34 +66,57 @@ export default function CertificatesSection() {
           100% { background-position: 0% 50%; }
         }
 
-        /* 🔥 DYNAMIC 3D PERSPECTIVE MESH GRID LAYER (NO TURTLES) */
-        .cyber-3d-matrix-mesh {
+        /* 🔥 SMOOTH INFINITE 3D GRID ENGINE */
+        .cyber-3d-perspective-grid {
           position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
+          top: -30%;
+          left: -10%;
+          width: 120%;
+          height: 150%;
           background-image: 
-            linear-gradient(rgba(20, 184, 166, 0.05) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(20, 184, 166, 0.05) 2px, transparent 2px);
-          background-size: 60px 60px;
-          transform: perspective(600px) rotateX(60deg) translateY(0px);
-          animation: meshMoveInfinite 30s linear infinite;
+            linear-gradient(to bottom, rgba(20, 184, 166, 0.06) 1px, transparent 1px),
+            linear-gradient(to right, rgba(20, 184, 166, 0.06) 1px, transparent 1px);
+          background-size: 50px 50px;
+          
+          /* 3D Depth coordinates projection matrix */
+          transform: perspective(450px) rotateX(65deg) translateZ(0);
+          transform-origin: top center;
+          
+          animation: infiniteSmoothGridForward 16s linear infinite;
           z-index: 0;
           pointer-events: none;
         }
 
-        @keyframes meshMoveInfinite {
-          0% { transform: perspective(600px) rotateX(60deg) translateY(0px) rotate(0deg); }
-          50% { transform: perspective(600px) rotateX(55deg) translateY(-60px) rotate(1deg); }
-          100% { transform: perspective(600px) rotateX(60deg) translateY(-120px) rotate(0deg); }
+        /* Seamless layout coordinate shifts to avoid screen flickering/stretching */
+        @keyframes infiniteSmoothGridForward {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 0 400px; /* Moves the matrix pattern continuously down forward */
+          }
+        }
+
+        /* Top atmospheric fade to merge grid seamlessly into the dark matrix background */
+        .grid-fog-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 40%;
+          background: linear-gradient(to bottom, #020005, transparent);
+          z-index: 0;
+          pointer-events: none;
         }
       `}</style>
 
-      {/* 🌌 VISUAL LAYER: FUTURISTIC 3D PERSPECTIVE MESH */}
-      <div className="cyber-3d-matrix-mesh"></div>
+      {/* 🌌 VISUAL LAYER: SMOOTH 3D PERSPECTIVE SCROLLING GRID */}
+      <div className="cyber-3d-perspective-grid"></div>
+      
+      {/* 🌫️ ATMOSPHERIC RADIAL FADE FOR DEEP AMBIENT MATRIX LOOK */}
+      <div className="grid-fog-overlay"></div>
 
-      {/* Interface content panel layer sitting safely above the 3D grid layout */}
+      {/* Interface core panel wrapper sitting securely over the 3D grid system */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
         {/* SUBTITLE */}
@@ -101,7 +124,7 @@ export default function CertificatesSection() {
           Honors & Badges
         </p>
         
-        {/* BEBAS NEUE HEADER */}
+        {/* PRIMARY BEBAS NEUE HEADER MAP */}
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
           Certificates & Achievements
         </h2>
@@ -115,13 +138,13 @@ export default function CertificatesSection() {
                 padding: '32px',
                 borderRadius: 20,
                 border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(5, 5, 10, 0.65)',
-                backdropFilter: 'blur(24px)', // Glassmorphism diffraction over the mesh grid
+                background: 'rgba(5, 5, 10, 0.68)',
+                backdropFilter: 'blur(24px)', // High distortion blur for clear vision properties
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease',
-                boxShadow: '0 25px 55px -20px rgba(0,0,0,0.75)'
+                boxShadow: '0 25px 55px -20px rgba(0,0,0,0.8)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px) scale(1.01)';
@@ -133,7 +156,7 @@ export default function CertificatesSection() {
               }}
             >
               <div>
-                {/* Abstract System Gradient Canvas Header */}
+                {/* Abstract System Gradient Canvas Header Box */}
                 <div style={{ 
                   position: 'relative', 
                   width: '100%', 
@@ -152,7 +175,7 @@ export default function CertificatesSection() {
                   </span>
                 </div>
 
-                {/* Sub tags rows tracker mapping */}
+                {/* Sub tags tracking grid row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
                   <p style={{ fontSize: 8.5, letterSpacing: '0.18em', textTransform: 'uppercase', color: item.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {item.tag}
