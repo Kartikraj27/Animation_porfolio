@@ -2,9 +2,22 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { educationData } from '@/data/education';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Data ko humne direct isi file ke andar rakh diya hai
+const educationData = [
+  {
+    id: "edu-1",
+    degree: "Bachelor of Technology (B.Tech)",
+    branch: "Computer Science & Engineering",
+    institution: "Government Engineering College, Vaishali",
+    logoUrl: "https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png",
+    academicYear: "2022 - 2026",
+    description: "Specialized in computer engineering modules including deep analytics, structural algorithms, and highly distributed web applications. Actively focusing on modern structural development methodologies.",
+    skillsLearned: ["Data Structures", "Algorithms", "Web Development", "Database Systems"]
+  }
+];
 
 export const Education: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -13,7 +26,7 @@ export const Education: React.FC = () => {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // Reveal container title animation
+    // Heading animation
     gsap.fromTo(
       sectionRef.current.querySelector('.edu-heading'),
       { opacity: 0, y: 30 },
@@ -29,7 +42,7 @@ export const Education: React.FC = () => {
       }
     );
 
-    // Staggered cinematic reveal for cards
+    // Cards animation
     cardRefs.current.forEach((card) => {
       if (!card) return;
       gsap.fromTo(
@@ -56,7 +69,6 @@ export const Education: React.FC = () => {
       className="relative min-h-[70vh] bg-[#0a0a0a] text-white py-20 px-6 overflow-hidden flex flex-col justify-center"
       id="education"
     >
-      {/* Background Micro-Grids for Cinematic Depth */}
       <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_50%)]" />
 
       <div className="max-w-4xl mx-auto w-full relative z-10">
@@ -77,13 +89,11 @@ export const Education: React.FC = () => {
               ref={(el) => { if (el) cardRefs.current[idx] = el; }}
               className="relative group"
             >
-              {/* Interactive Laser Glow Bullet */}
               <div className="absolute -left-[31px] md:-left-[39px] top-2 w-3 h-3 rounded-full bg-neutral-900 border border-neutral-700 group-hover:bg-white group-hover:border-white group-hover:shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-300" />
 
-              {/* Glassmorphic Project Card Base */}
               <div className="p-6 md:p-8 rounded-xl bg-neutral-900/30 border border-neutral-800/80 backdrop-blur-sm hover:border-neutral-700/60 transition-all duration-300">
                 
-                {/* Year, Degree & Specialization Metadata */}
+                {/* Year, Degree & Specialization */}
                 <div className="flex flex-col justify-between gap-1 mb-4">
                   <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block">
                     {edu.academicYear}
@@ -107,7 +117,7 @@ export const Education: React.FC = () => {
                       width={48}
                       height={48}
                       className="object-contain filter brightness-100 transition-all duration-300"
-                      priority={idx === 0} // Loads first card logo quickly without flash
+                      priority={idx === 0}
                     />
                   </div>
                   <h4 className="text-base md:text-lg font-semibold text-neutral-200 tracking-wide leading-snug max-w-xl">
