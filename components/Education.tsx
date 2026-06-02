@@ -23,7 +23,7 @@ const EDUCATION = [
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
     institution: 'Doon senior secondary school,Muzaffarpur, Bihar', // <--- Yahan apna School Name aur City badal lijiye
-    logoUrl: '/doon-logo.png', // Default beautiful fallback icon/logo placeholder
+    logoUrl: '/Doon.png', // Default beautiful fallback icon/logo placeholder
     academicYear: '2018 - 2020'
   }
 ]
