@@ -1,7 +1,8 @@
 import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import ProjectsSection from '@/components/ProjectsSection'
-import EducationSection from '@/components/Education' // Maps directly to components/Education.tsx
+import EducationSection from '@/components/Education'
+import CertificatesSection from '@/components/CertificatesSection' // Newly included honors structure
 import ContactSection from '@/components/ContactSection'
 
 export default function Home() {
@@ -10,9 +11,10 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
-      
-      {/* Education block rendered smoothly right after projects */}
       <EducationSection />
+      
+      {/* Certificates & Achievements follows immediately after education grid sequence */}
+      <CertificatesSection />
       
       <ContactSection />
     </main>
