@@ -15,15 +15,15 @@ const EDUCATION = [
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
     institution: 'Mahant Hanuman Sharan Seniour Higher Secondary School, Patna', // <--- Yahan apna School Name aur City badal lijiye
-    logoUrl: 'https://www.bing.com/images/search?view=detailV2&ccid=KmrLpH8I&id=B1B383CD22AB4E497D25030069A0CCFFBC3C6E3B&thid=OIP.KmrLpH8IxpIF61hFYmzo8QHaEK&mediaurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2FC9IDqVLJD9M%2Fmaxresdefault.jpg%3Fsqp%3D-oaymwEoCIAKENAF8quKqQMcGADwAQH4Ac4FgAKACooCDAgAEAEYciBFKDkwDw%3D%3D%26rs%3DAOn4CLARSj7XZ6zJUfhUY55RJomdlueK3g&exph=720&expw=1280&q=M.M.H.S.High+School%2CMainpura%2C+Patna&ck=19F4AB388F92443BE9BEB6064814523D&selectedIndex=0&itb=0&cw=1375&ch=659&ajaxhist=0&ajaxserp=0&shtc=0&shth=OIP.KmrLpH8IxpIF61hFYmzo8QHaEK&shsc=idp&form=EX0050&shid=bc28675c-f2fa-4bb7-8d60-2a37fdae2526&shtp=GetUrl&shtk=TSBIIFMgSElHSCBTQ0hPT0wgUkFKQVBVUiAsIE1BSU5QVVJBICwgUEFUTkEgLCBNYWhhbnQgSGFudW1hbiBTYXJhbiAuLi4%3D&shdk=Rm91bmQgb24gQmluZyBmcm9tIHd3dy55b3V0dWJlLmNvbQ%3D%3D&shhk=N42fBuGFLozfQSR3TSVjJOYZSnt8GE8AN2%2FP54IwzEY%3D', // Default beautiful fallback icon/logo placeholder
+    logoUrl: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=120&auto=format&fit=crop', // Default beautiful fallback icon/logo placeholder
     academicYear: '2020 - 2022'
   },
   {
-    title: 'Higher Secondary Schooling (10th / Matriculation)',
+    title: 'Matriculation (10th / Matriculation)',
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
     institution: 'Doon senior secondary school,Muzaffarpur, Bihar', // <--- Yahan apna School Name aur City badal lijiye
-    logoUrl: 'https://sites.google.com/view/doon-sen-sec-school/home?authuser=0', // Default beautiful fallback icon/logo placeholder
+    logoUrl: '/doon-logo.png', // Default beautiful fallback icon/logo placeholder
     academicYear: '2018 - 2020'
   }
 ]
