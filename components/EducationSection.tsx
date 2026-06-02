@@ -1,32 +1,143 @@
-'My Education'
-const EDUCATION = [
-  { title: 'Bachlor of Technology', desc: 'Government Engineering College, Vaisali', tag: '2022-2026' },
-  { title: 'Intermidiate',     desc: 'M.H.S.High School, Patna',  tag: '2020-2022' },
-  { title: 'Matriculation',       desc: 'Doon Senior Secondary School, Muzaffarpur',    tag: '2018-2020' },
-]
+import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { educationData } from '@/data/education';
 
-export default function EducationSection() {
+gsap.registerPlugin(ScrollTrigger);
+
+export const Education: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Reveal container title animation
+    gsap.fromTo(
+      sectionRef.current.querySelector('.edu-heading'),
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        }
+      }
+    );
+
+    // Staggered cinematic reveal for cards
+    cardRefs.current.forEach((card) => {
+      if (!card) return;
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section id="education" style={{ minHeight: '100vh', background: '#060606', padding: '100px 40px' }}>
-      <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(255,140,66,0.8)', marginBottom: 20, textAlign: 'center' }}>
-        Selected Work
-      </p>
-      <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64 }}>
-        Education
-      </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 24, maxWidth: 1100, margin: '0 auto' }}>
-        {EDUCATION.map(e => (
-          <div key={e.title} style={{
-            padding: '40px 32px', border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: 16, background: 'rgba(255,255,255,0.03)',
-            backdropFilter: 'blur(10px)', transition: 'border-color 0.3s',
-          }}>
-            <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,140,66,0.7)', marginBottom: 14 }}>{e.tag}</p>
-            <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: '2rem', color: '#fff', marginBottom: 12 }}>{e.title}</h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>{e.desc}</p>
-          </div>
-        ))}
+    <section 
+      ref={sectionRef} 
+      className="relative min-h-[70vh] bg-[#0a0a0a] text-white py-20 px-6 overflow-hidden flex flex-col justify-center"
+      id="education"
+    >
+      {/* Background Micro-Grids for Cinematic Depth */}
+      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_50%)]" />
+
+      <div className="max-w-4xl mx-auto w-full relative z-10">
+        {/* Section Header */}
+        <div className="mb-14 edu-heading">
+          <p className="text-xs font-mono tracking-[0.3em] text-neutral-500 uppercase mb-2">Academic Journey</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral-500">
+            Education
+          </h2>
+          <div className="h-[1px] w-12 bg-neutral-700 mt-4"></div>
+        </div>
+
+        {/* Timeline Layout */}
+        <div className="relative border-l border-neutral-800 ml-2 pl-6 md:pl-8 space-y-8">
+          {educationData.map((edu, idx) => (
+            <div
+              key={edu.id}
+              ref={(el) => { if (el) cardRefs.current[idx] = el; }}
+              className="relative group"
+            >
+              {/* Interactive Laser Glow Bullet */}
+              <div className="absolute -left-[31px] md:-left-[39px] top-2 w-3 h-3 rounded-full bg-neutral-900 border border-neutral-700 group-hover:bg-white group-hover:border-white group-hover:shadow-[0_0_12px_rgba(255,255,255,0.8)] transition-all duration-300" />
+
+              {/* Glassmorphic Project Card Base */}
+              <div className="p-6 md:p-8 rounded-xl bg-neutral-900/30 border border-neutral-800/80 backdrop-blur-sm hover:border-neutral-700/60 transition-all duration-300">
+                
+                {/* Year, Degree & Specialization Metadata */}
+                <div className="flex flex-col justify-between gap-1 mb-4">
+                  <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider block">
+                    {edu.academicYear}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-sm font-medium text-neutral-400">
+                    Branch: <span className="text-neutral-300">{edu.branch}</span>
+                  </p>
+                </div>
+
+                <div className="border-t border-neutral-800/60 my-4"></div>
+
+                {/* Brand Showcase Block: Logo with College Title */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="relative w-14 h-14 flex-shrink-0 bg-neutral-950/80 border border-neutral-800 rounded-xl p-1.5 overflow-hidden flex items-center justify-center group-hover:border-neutral-700 transition-colors shadow-inner">
+                    <Image 
+                      src={edu.logoUrl} 
+                      alt={`${edu.institution} Logo`}
+                      width={48}
+                      height={48}
+                      className="object-contain filter brightness-100 transition-all duration-300"
+                      priority={idx === 0} // Loads first card logo quickly without flash
+                    />
+                  </div>
+                  <h4 className="text-base md:text-lg font-semibold text-neutral-200 tracking-wide leading-snug max-w-xl">
+                    {edu.institution}
+                  </h4>
+                </div>
+
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed max-w-2xl mt-2">
+                  {edu.description}
+                </p>
+
+                {/* Focus Skill Tags */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {edu.skillsLearned.map((skill, sIdx) => (
+                    <span 
+                      key={sIdx}
+                      className="text-[11px] font-mono px-2.5 py-1 bg-neutral-900 border border-neutral-800 rounded text-neutral-400 group-hover:border-neutral-700 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Education;
