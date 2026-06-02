@@ -15,7 +15,7 @@ const EDUCATION = [
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
     institution: 'Mahant Hanuman Sharan Seniour Higher Secondary School, Patna', // <--- Yahan apna School Name aur City badal lijiye
-    logoUrl: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=120&auto=format&fit=crop', // Default beautiful fallback icon/logo placeholder
+    logoUrl: '/school.png', // Default beautiful fallback icon/logo placeholder
     academicYear: '2020 - 2022'
   },
   {
