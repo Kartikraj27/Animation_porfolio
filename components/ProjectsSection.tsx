@@ -64,21 +64,6 @@ const PROJECTS = [
     tagColor: 'rgba(14, 165, 233, 0.9)',
     imgUrl: 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=400&auto=format&fit=crop',
     btnText: 'Open Live Calci'
-  },
-  {
-    title: 'All India Naukri Campus Aptitude Test (AINCAT)',
-    desc: 'Successfully evaluated in India’s biggest nationwide career aptitude benchmark evaluation assessment matrix. Verified strong analytical baseline, problem-solving efficiency, and quantitative reasoning modules mapped across top-tier enterprise recruitment standards.',
-    tag: 'National Evaluation Assessment',
-    timeline: 'May 2026',
-    demoUrl: '#',
-    cardStyle: {
-      background: 'linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(6, 4, 15, 0.7) 100%)',
-      border: '1px solid rgba(234, 179, 8, 0.25)', 
-      boxShadow: '0 12px 45px -15px rgba(234, 179, 8, 0.12)'
-    },
-    tagColor: 'rgba(234, 179, 8, 0.95)', 
-    imgUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=400&auto=format&fit=crop',
-    btnText: 'Verify Credential ID'
   }
 ]
 
