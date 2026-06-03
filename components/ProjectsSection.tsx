@@ -94,10 +94,6 @@ export default function ProjectsSection() {
       {/* Interface Wrapper over background animation layers */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
-        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(20, 184, 166, 0.8)', marginBottom: 20, textAlign: 'center' }}>
-          Selected Work & Production Pipelines
-        </p>
-        
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 70, letterSpacing: '0.01em' }}>
           Projects
         </h2>
