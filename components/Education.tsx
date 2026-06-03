@@ -176,7 +176,7 @@ const EDUCATION = [
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
     institution: 'Doon Senior Secondary School', 
-    logoUrl: '/doon-logo.png', 
+    logoUrl: '/Doon.png', 
     academicYear: '2019 - 2020',
     bgStyle: {
       background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.25) 0%, rgba(10, 10, 10, 0.5) 100%)',
