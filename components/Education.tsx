@@ -28,17 +28,15 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Array tracking exactly 10 fishes with individual multi-color assignments
     const fishes: Array<{
       x: number
       y: number
       size: number
       speed: number
       tailWiggle: number
-      color: string; // Dynamic fish personal color
+      color: string;
     }> = []
 
-    // Initialize 10 fishes with mixed colors from the palette array
     for (let i = 0; i < 10; i++) {
       fishes.push({
         x: Math.random() * (canvas.width || 300),
@@ -46,7 +44,7 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
         size: Math.random() * 5 + 6,        
         speed: Math.random() * 0.5 + 0.25,   
         tailWiggle: Math.random() * 100,
-        color: colorPalette[i % colorPalette.length] // Assigns different color to each fish
+        color: colorPalette[i % colorPalette.length]
       })
     }
 
@@ -70,18 +68,15 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
         ctx.save()
         ctx.translate(fish.x, fish.y)
         
-        // Applying individual fish neon shadow glow
         ctx.shadowBlur = 8
         ctx.shadowColor = fish.color
 
         ctx.fillStyle = fish.color
         ctx.beginPath()
         
-        // Main Body Shape
         ctx.ellipse(0, 0, fish.size, fish.size / 2.2, 0, 0, Math.PI * 2)
         ctx.fill()
 
-        // Dynamic Tail Movement
         const wiggleX = -fish.size - (Math.sin(fish.tailWiggle) * 2.5)
         ctx.beginPath()
         ctx.moveTo(-fish.size + 2, 0)
@@ -90,7 +85,6 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
         ctx.closePath()
         ctx.fill()
 
-        // Tiny Eye
         ctx.fillStyle = 'rgba(255,255,255,0.4)'
         ctx.beginPath()
         ctx.arc(fish.size / 2, -fish.size / 6, 1.2, 0, Math.PI * 2)
@@ -127,7 +121,7 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
   )
 }
 
-// --- DATA MANAGEMENT WITH MULTI-COLOR PALETTES ---
+// --- DATA MANAGEMENT ---
 const EDUCATION = [
   {
     title: 'Bachelor of Technology (B.Tech)',
@@ -137,7 +131,7 @@ const EDUCATION = [
     logoUrl: 'https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png',
     academicYear: '2022 - 2026',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(11, 58, 84, 0.4) 0%, rgba(5, 12, 20, 0.75) 100%)',
+      background: 'linear-gradient(135deg, rgba(11, 58, 84, 0.45) 0%, rgba(5, 12, 20, 0.8) 100%)',
       border: '1px solid rgba(0, 196, 237, 0.3)',
       boxShadow: '0 12px 40px -10px rgba(0, 196, 237, 0.25)'
     },
@@ -157,7 +151,7 @@ const EDUCATION = [
     logoUrl: '/school.png',
     academicYear: '2020 - 2022',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.4) 0%, rgba(5, 12, 10, 0.75) 100%)',
+      background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.45) 0%, rgba(5, 12, 10, 0.8) 100%)',
       border: '1px solid rgba(72, 187, 120, 0.3)',
       boxShadow: '0 12px 40px -10px rgba(72, 187, 120, 0.25)'
     },
@@ -175,9 +169,9 @@ const EDUCATION = [
     tag: 'General Secondary Education',
     institution: 'Doon Senior Secondary School', 
     logoUrl: '/Doon.png', 
-    academicYear: '2018 - 2020',
+    academicYear: '2019 - 2020',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.4) 0%, rgba(10, 10, 10, 0.75) 100%)',
+      background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.45) 0%, rgba(10, 10, 10, 0.8) 100%)',
       border: '1px solid rgba(221, 107, 32, 0.3)',
       boxShadow: '0 12px 40px -10px rgba(221, 107, 32, 0.25)'
     },
@@ -203,16 +197,16 @@ export default function EducationSection() {
       id="education" 
       style={{ 
         minHeight: '100vh', 
-        background: '#010a1a', // Rich Deep Oceanic Blue base
+        background: '#010916', // Deep Sea Base
         padding: '120px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.05)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* 🌊 HIGH-VISIBILITY REAL 3D WATERFLOW SEMI-TRANSPARENT LIQUID ENGINE */}
+      {/* 🌊 FULL-PAGE HIGH INTENSITY 3D LIQUID WATERFLOW ENGINE */}
       <style>{`
-        .page-waterflow-container {
+        .full-page-water-matrix {
           position: absolute;
           top: 0;
           left: 0;
@@ -223,110 +217,102 @@ export default function EducationSection() {
           overflow: hidden;
         }
 
-        /* Fluid Layer Presets: Line ki jagah ab actual filled fluid curves use ho rhe hai */
-        .liquid-wave-layer {
+        /* Pure Fluid Fluid Wave Blocks covering the whole page vertically */
+        .full-wave-layer {
           position: absolute;
-          bottom: -20px;
-          left: 0;
+          top: -10%;
+          left: -50%;
           width: 200%;
-          height: 100%;
-          background-repeat: repeat-x;
+          height: 120%;
+          background-repeat: repeat;
           will-change: transform;
-          transform: translate3d(0, 0, 0);
         }
 
-        /* Wave 1: Back Deep Liquid Volume (Slow Flow) */
-        .wave-layer-back {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1300,40 1450,60 L1450,120 L0,120 Z" fill="%230284c7" opacity="0.12"/></svg>');
-          background-size: 50% 140px;
-          animation: waveMoveHorizontal 24s linear infinite, liquidFluid3D 12s ease-in-out infinite alternate;
-          bottom: 0;
+        /* Wave 1: Massive Deep Water Volume Flow */
+        .wave-matrix-back {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,150 C300,280 600,50 900,200 C1200,350 1350,100 1500,250 L1500,600 L0,600 Z" fill="%230284c7" opacity="0.08"/></svg>');
+          background-size: 50% 600px;
+          animation: waveH 28s linear infinite, waveV3D 14s ease-in-out infinite alternate;
         }
 
-        /* Wave 2: Mid Aqua Streaming Volume (Medium Flow) */
-        .wave-layer-mid {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,50 C200,90 400,10 600,50 C800,90 1000,10 1200,50 L1200,120 L0,120 Z" fill="%2338bdf8" opacity="0.08"/></svg>');
-          background-size: 40% 180px;
-          animation: waveMoveHorizontalInverse 16s linear infinite, liquidFluid3D 8s ease-in-out infinite alternate;
-          bottom: 5px;
+        /* Wave 2: Mid Streaming Ambient Aqua Fluid */
+        .wave-matrix-mid {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,200 C250,50 600,300 900,120 C1200,280 1380,80 1500,180 L1500,600 L0,600 Z" fill="%230ea5e9" opacity="0.06"/></svg>');
+          background-size: 40% 550px;
+          animation: waveHInverse 20s linear infinite, waveV3D 10s ease-in-out infinite alternate;
         }
 
-        /* Wave 3: Front Bright Cyan Shimmer Surface (Fast Highlight Flow) */
-        .wave-layer-front {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,40 C300,80 500,0 700,40 C900,80 1000,10 1200,40 L1200,120 L0,120 Z" fill="%2306b6d4" opacity="0.06"/></svg>');
-          background-size: 33% 220px;
-          animation: waveMoveHorizontal 12s linear infinite, liquidFluid3D 6s ease-in-out infinite alternate;
-          bottom: 15px;
+        /* Wave 3: Front Bright Cyan Shimmer Fluid Flow */
+        .wave-matrix-front {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,100 C350,220 550,20 850,180 C1100,300 1300,40 1500,120 L1500,600 L0,600 Z" fill="%2306b6d4" opacity="0.05"/></svg>');
+          background-size: 33% 500px;
+          animation: waveH 15s linear infinite, waveV3D 7s ease-in-out infinite alternate;
         }
 
-        /* Solid Ambient Liquid Reflector (Gives real underwater depth feeling) */
-        .ocean-depth-gradient {
+        /* Absolute Vertical Tint overlaying the full screen */
+        .full-page-ocean-shading {
           position: absolute;
-          bottom: 0;
+          top: 0;
           left: 0;
           width: 100%;
-          height: 65%;
-          background: linear-gradient(to top, rgba(2, 132, 199, 0.15) 0%, rgba(6, 182, 212, 0.04) 45%, transparent 100%);
+          height: 100%;
+          background: linear-gradient(180deg, rgba(1, 9, 22, 0.3) 0%, rgba(2, 132, 199, 0.12) 50%, rgba(6, 182, 212, 0.18) 100%);
           pointer-events: none;
         }
 
-        /* 🧼 High Contrast Glowing Water Bubbles rising from the bottom */
-        .water-fluid-bubble {
+        /* Global High-Visibility Floating Water Bubbles (Spanning full height) */
+        .global-fluid-bubble {
           position: absolute;
-          bottom: -20px;
-          background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(56, 189, 248, 0.2) 70%, transparent 100%);
+          bottom: -30px;
+          background: radial-gradient(circle, rgba(255,255,255,0.65) 0%, rgba(56, 189, 248, 0.25) 60%, transparent 100%);
           border-radius: 50%;
-          box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-          animation: bubbleRiseUp 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+          animation: globalBubbleRise 15s cubic-bezier(0.3, 0.1, 0.3, 1) infinite;
         }
 
-        /* Horizontal Tides Keyframes */
-        @keyframes waveMoveHorizontal {
+        /* Motion Vectors */
+        @keyframes waveH {
           0% { transform: translate3d(0, 0, 0); }
           100% { transform: translate3d(-50%, 0, 0); }
         }
-        @keyframes waveMoveHorizontalInverse {
+        @keyframes waveHInverse {
           0% { transform: translate3d(-50%, 0, 0); }
           100% { transform: translate3d(0, 0, 0); }
         }
-
-        /* 3D Vertical Liquid Floating Keyframes */
-        @keyframes liquidFluid3D {
-          0% { transform: translateY(0px) scaleY(0.95) skewX(-1deg); }
-          100% { transform: translateY(-40px) scaleY(1.05) skewX(1deg); }
+        @keyframes waveV3D {
+          0% { transform: translateY(-10px) scaleY(0.96) rotate(-0.5deg); }
+          100% { transform: translateY(30px) scaleY(1.04) rotate(0.5deg); }
         }
-
-        /* Bubble Fluid Movement Track */
-        @keyframes bubbleRiseUp {
-          0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
-          10% { opacity: 0.8; }
-          80% { opacity: 0.3; }
-          100% { transform: translateY(-1100px) translateX(90px) scale(1.3); opacity: 0; }
+        @keyframes globalBubbleRise {
+          0% { transform: translateY(0) translateX(0) scale(0.4); opacity: 0; }
+          8% { opacity: 0.85; }
+          90% { opacity: 0.2; }
+          100% { transform: translateY(-1200px) translateX(110px) scale(1.4); opacity: 0; }
         }
       `}</style>
 
-      {/* RENDER DYNAMIC WATER LAYERS */}
-      <div className="page-waterflow-container">
-        <div className="liquid-wave-layer wave-layer-back" />
-        <div className="liquid-wave-layer wave-layer-mid" />
-        <div className="liquid-wave-layer wave-layer-front" />
-        <div className="ocean-depth-gradient" />
+      {/* FULL WRAPPER LIQUID ENGINE */}
+      <div className="full-page-water-matrix">
+        <div className="full-wave-layer wave-matrix-back" />
+        <div className="full-wave-layer wave-matrix-mid" />
+        <div className="full-wave-layer wave-matrix-front" />
+        <div className="full-page-ocean-shading" />
 
-        {/* Crisp visible water bubbles */}
-        <div className="water-fluid-bubble" style={{ left: '12%', width: '6px', height: '6px', animationDelay: '0s', animationDuration: '9s' }} />
-        <div className="water-fluid-bubble" style={{ left: '35%', width: '4px', height: '4px', animationDelay: '2.5s', animationDuration: '14s' }} />
-        <div className="water-fluid-bubble" style={{ left: '58%', width: '7px', height: '7px', animationDelay: '1s', animationDuration: '11s' }} />
-        <div className="water-fluid-bubble" style={{ left: '78%', width: '5px', height: '5px', animationDelay: '4s', animationDuration: '16s' }} />
-        <div className="water-fluid-bubble" style={{ left: '92%', width: '8px', height: '8px', animationDelay: '1.5s', animationDuration: '10s' }} />
+        {/* Distributed fluid bubbles across full width */}
+        <div className="global-fluid-bubble" style={{ left: '8%', width: '7px', height: '7px', animationDelay: '0s', animationDuration: '11s' }} />
+        <div className="global-fluid-bubble" style={{ left: '24%', width: '5px', height: '5px', animationDelay: '3s', animationDuration: '16s' }} />
+        <div className="global-fluid-bubble" style={{ left: '48%', width: '8px', height: '8px', animationDelay: '1s', animationDuration: '13s' }} />
+        <div className="global-fluid-bubble" style={{ left: '70%', width: '6px', height: '6px', animationDelay: '5s', animationDuration: '18s' }} />
+        <div className="global-fluid-bubble" style={{ left: '88%', width: '9px', height: '9px', animationDelay: '2s', animationDuration: '12s' }} />
       </div>
 
       {/* --- MAIN INTERFACE CONTENT WRAPPER --- */}
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: '#38bdf8', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 10px rgba(56,189,248,0.4)' }}>
+        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: '#38bdf8', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 10px rgba(56,189,248,0.5)' }}>
           Academic Journey
         </p>
         
-        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64, textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>
+        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64, textShadow: '0 4px 25px rgba(0,0,0,0.75)' }}>
           Education
         </h2>
         
@@ -336,7 +322,7 @@ export default function EducationSection() {
               position: 'relative', 
               padding: '40px 32px',
               borderRadius: 16,
-              backdropFilter: 'blur(14px)',
+              backdropFilter: 'blur(16px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -346,14 +332,14 @@ export default function EducationSection() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-6px)';
-              e.currentTarget.style.boxShadow = '0 20px 50px -10px rgba(56, 189, 248, 0.3)';
+              e.currentTarget.style.boxShadow = '0 20px 50px -10px rgba(56, 189, 248, 0.35)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = edu.bgStyle.boxShadow;
             }}
             >
-              {/* Box Embedded Custom Neon Fishes */}
+              {/* Fish Box Render */}
               {mounted && <FishAquariumBackground colorPalette={edu.fishPalette} />}
 
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -361,7 +347,7 @@ export default function EducationSection() {
                   <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: edu.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {edu.tag}
                   </p>
-                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)' }}>
+                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.45)' }}>
                     {edu.academicYear}
                   </span>
                 </div>
@@ -370,7 +356,7 @@ export default function EducationSection() {
                   {edu.title}
                 </h3>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, padding: '12px', background: 'rgba(0,0,0,0.4)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.04)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, padding: '12px', background: 'rgba(0,0,0,0.45)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.05)' }}>
                   <div style={{ position: 'relative', width: 44, height: 44, flexShrink: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 6, background: 'rgba(255,255,255,0.02)' }}>
                     <Image 
                       src={edu.logoUrl} 
@@ -386,7 +372,7 @@ export default function EducationSection() {
                   </h4>
                 </div>
 
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.76)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.85)' }}>
                   {edu.desc}
                 </p>
               </div>
