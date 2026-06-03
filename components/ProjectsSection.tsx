@@ -1,7 +1,7 @@
 'use client'
 
 // ==========================================================================
-// 🎯 STRICT PROJECTS ARRAY (DIRECT INTEGRATED FROM USER SUBMITTED DATA FILE)
+// 🎯 STRICT PROJECTS ARRAY (DYNAMIC IMAGE PATH INTEGRATION)
 // ==========================================================================
 const PROJECTS = [
   {
@@ -10,12 +10,12 @@ const PROJECTS = [
     tag: 'React · Three.js · GSAP',
     timeline: '2026',
     demoUrl: 'https://animation-porfolio-iota.vercel.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80', // Cinematic 3D / Abstract Wave
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.12) 0%, rgba(5, 5, 10, 0.6) 100%)',
       border: '1px solid rgba(20, 184, 166, 0.15)', 
       boxShadow: '0 12px 40px -15px rgba(20, 184, 166, 0.1)'
     },
-    meshStyle: 'linear-gradient(45deg, #0d9488 0%, #115e59 100%)',
     tagColor: 'rgba(20, 184, 166, 0.9)',
     btnText: 'Launch Interface Core'
   },
@@ -25,12 +25,12 @@ const PROJECTS = [
     tag: 'React.js · HTML5 · CSS3 · Bootstrap · Javascript',
     timeline: '2026',
     demoUrl: 'https://hand-connect-ashy.vercel.app',
+    imageUrl: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80', // Cyberpunk / AR Technology
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(5, 5, 10, 0.6) 100%)',
       border: '1px solid rgba(99, 102, 241, 0.15)', 
       boxShadow: '0 12px 40px -15px rgba(99, 102, 241, 0.1)'
     },
-    meshStyle: 'linear-gradient(45deg, #4f46e5 0%, #312e81 100%)',
     tagColor: 'rgba(99, 102, 241, 0.9)',
     btnText: 'Launch Live Web App'
   },
@@ -40,12 +40,12 @@ const PROJECTS = [
     tag: 'React.js · Node.js · MongoDB · Express',
     timeline: '2025',
     demoUrl: '#',
+    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80', // Infrastructure / Logistics Asset Management
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(5, 5, 10, 0.6) 100%)',
       border: '1px solid rgba(239, 68, 68, 0.15)', 
       boxShadow: '0 12px 40px -15px rgba(239, 68, 68, 0.08)'
     },
-    meshStyle: 'linear-gradient(45deg, #dc2626 0%, #7f1d1d 100%)',
     tagColor: 'rgba(239, 68, 68, 0.9)',
     btnText: 'Deploy Inventory Core'
   },
@@ -55,12 +55,12 @@ const PROJECTS = [
     tag: 'HTML5 · CSS3 · Javascript',
     timeline: '2025',
     demoUrl: 'https://scientific-calci-eight.vercel.app',
+    imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=600&q=80', // Mathematics / Data Analytics Screen
     cardStyle: {
       background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(5, 5, 10, 0.6) 100%)',
       border: '1px solid rgba(14, 165, 233, 0.15)',
       boxShadow: '0 12px 40px -15px rgba(14, 165, 233, 0.1)'
     },
-    meshStyle: 'linear-gradient(45deg, #0284c7 0%, #0c4a6e 100%)',
     tagColor: 'rgba(14, 165, 233, 0.9)',
     btnText: 'Open Live Calci'
   }
@@ -121,22 +121,55 @@ export default function ProjectsSection() {
               onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
               <div>
-                {/* Mathematical Gradient Dynamic System Banner Node */}
+                {/* 🖼️ DYNAMIC IMAGE BANNER WITH OVERLAY LAYER */}
                 <div style={{ 
                   position: 'relative', 
                   width: '100%', 
-                  height: '140px', 
+                  height: '160px', 
                   borderRadius: 12, 
                   marginBottom: 24, 
-                  background: proj.meshStyle,
-                  opacity: 0.65,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid rgba(255,255,255,0.05)'
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255,255,255,0.08)'
                 }}>
-                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-                    System Node // 0{index + 1}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={proj.imageUrl} 
+                    alt={proj.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      opacity: 0.75,
+                      transition: 'transform 0.5s ease'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.06)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  />
+                  {/* Dark Vignette Overlay to maintain Cyberpunk Aesthetics */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to bottom, transparent 30%, rgba(5,5,10,0.8) 100%)',
+                    pointerEvents: 'none'
+                  }} />
+                  {/* Floating Index Tag */}
+                  <span style={{ 
+                    position: 'absolute',
+                    bottom: 12,
+                    right: 12,
+                    fontSize: 9, 
+                    fontFamily: 'monospace', 
+                    color: 'rgba(255,255,255,0.6)', 
+                    backgroundColor: 'rgba(0,0,0,0.65)',
+                    padding: '3px 8px',
+                    borderRadius: 4,
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    letterSpacing: '0.1em' 
+                  }}>
+                    NODE_0{index + 1}
                   </span>
                 </div>
 
