@@ -117,7 +117,7 @@ export default function HeroSection() {
 
         {/* Hero text */}
         <div className={styles.textWrap}>
-          <p className={styles.tagline}>Portfolio · 2026</p>
+          <p className={styles.tagline}> © Portfolio · 2026</p>
           <h1 className={styles.nameBlock}>
             <span className={styles.name1}>Kartik</span>
             <span className={styles.name2}>Raj</span>
