@@ -137,18 +137,17 @@ const EDUCATION = [
     logoUrl: 'https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png',
     academicYear: '2022 - 2026',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(11, 58, 84, 0.35) 0%, rgba(5, 12, 20, 0.65) 100%)',
-      border: '1px solid rgba(0, 168, 204, 0.25)',
-      boxShadow: '0 10px 30px -10px rgba(0, 168, 204, 0.2)'
+      background: 'linear-gradient(135deg, rgba(11, 58, 84, 0.4) 0%, rgba(5, 12, 20, 0.75) 100%)',
+      border: '1px solid rgba(0, 196, 237, 0.3)',
+      boxShadow: '0 12px 40px -10px rgba(0, 196, 237, 0.25)'
     },
-    // 🎨 B.Tech: Ocean Theme Multi-Colors (Cyan, Neon Blue, Teal Blue, Silver White)
     fishPalette: [
       'rgba(0, 196, 237, 0.45)', 
       'rgba(59, 130, 246, 0.45)', 
       'rgba(45, 212, 191, 0.4)', 
       'rgba(248, 250, 252, 0.35)'
     ],
-    tagColor: 'rgba(0, 168, 204, 0.85)'
+    tagColor: 'rgba(0, 196, 237, 0.95)'
   },
   {
     title: 'Higher Secondary (12th / Intermediate)',
@@ -158,18 +157,17 @@ const EDUCATION = [
     logoUrl: '/school.png',
     academicYear: '2020 - 2022',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.35) 0%, rgba(5, 12, 10, 0.65) 100%)',
-      border: '1px solid rgba(72, 187, 120, 0.25)',
-      boxShadow: '0 10px 30px -10px rgba(72, 187, 120, 0.2)'
+      background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.4) 0%, rgba(5, 12, 10, 0.75) 100%)',
+      border: '1px solid rgba(72, 187, 120, 0.3)',
+      boxShadow: '0 12px 40px -10px rgba(72, 187, 120, 0.25)'
     },
-    // 🎨 12th: Emerald Coral Multi-Colors (Mint Green, Lime Gold, Yellow, Soft Orange)
     fishPalette: [
       'rgba(72, 187, 120, 0.45)', 
       'rgba(163, 230, 53, 0.4)', 
       'rgba(234, 179, 8, 0.45)', 
       'rgba(249, 115, 22, 0.35)'
     ],
-    tagColor: 'rgba(72, 187, 120, 0.85)'
+    tagColor: 'rgba(72, 187, 120, 0.95)'
   },
   {
     title: 'Matriculation (10th / High School)',
@@ -177,20 +175,19 @@ const EDUCATION = [
     tag: 'General Secondary Education',
     institution: 'Doon Senior Secondary School', 
     logoUrl: '/Doon.png', 
-    academicYear: '2019 - 2020',
+    academicYear: '2018 - 2020',
     bgStyle: {
-      background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.35) 0%, rgba(10, 10, 10, 0.65) 100%)',
-      border: '1px solid rgba(221, 107, 32, 0.25)',
-      boxShadow: '0 10px 35px -10px rgba(221, 107, 32, 0.2)'
+      background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.4) 0%, rgba(10, 10, 10, 0.75) 100%)',
+      border: '1px solid rgba(221, 107, 32, 0.3)',
+      boxShadow: '0 12px 40px -10px rgba(221, 107, 32, 0.25)'
     },
-    // 🎨 10th: Fire Reef Multi-Colors (Gold Orange, Crimson Red, Deep Pink, Sunset Yellow)
     fishPalette: [
       'rgba(255, 140, 66, 0.45)', 
       'rgba(239, 68, 68, 0.4)', 
       'rgba(236, 72, 153, 0.4)', 
       'rgba(253, 224, 71, 0.45)'
     ],
-    tagColor: 'rgba(221, 107, 32, 0.85)'
+    tagColor: 'rgba(221, 107, 32, 0.95)'
   }
 ]
 
@@ -206,16 +203,16 @@ export default function EducationSection() {
       id="education" 
       style={{ 
         minHeight: '100vh', 
-        background: '#020612', // Subtle Deep Blue Obsidian Base
+        background: '#010a1a', // Rich Deep Oceanic Blue base
         padding: '120px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.05)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* 🌊 GLOBAL BACKGROUND ENGINE: 3D LIGHT BLUE WATERFLOW OVERLAYS */}
+      {/* 🌊 HIGH-VISIBILITY REAL 3D WATERFLOW SEMI-TRANSPARENT LIQUID ENGINE */}
       <style>{`
-        .page-waterflow-wrapper {
+        .page-waterflow-container {
           position: absolute;
           top: 0;
           left: 0;
@@ -224,96 +221,112 @@ export default function EducationSection() {
           z-index: 0;
           pointer-events: none;
           overflow: hidden;
-          opacity: 0.85;
         }
 
-        .waterflow-stream {
+        /* Fluid Layer Presets: Line ki jagah ab actual filled fluid curves use ho rhe hai */
+        .liquid-wave-layer {
           position: absolute;
-          bottom: -10%;
-          left: -10%;
-          width: 120%;
-          height: 120%;
-          background-repeat: no-repeat;
-          background-size: cover;
+          bottom: -20px;
+          left: 0;
+          width: 200%;
+          height: 100%;
+          background-repeat: repeat-x;
           will-change: transform;
-          mix-blend-mode: screen;
+          transform: translate3d(0, 0, 0);
         }
 
-        /* Stream 1: Shimmering Light Blue Core Flow */
-        .stream-light-blue {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none"><path d="M0,420 C300,340 600,480 900,380 C1200,280 1350,420 1440,320 L1440,900 L0,900 Z" fill="none" stroke="%2338bdf8" stroke-width="2" stroke-dasharray="15,20" opacity="0.25"/><path d="M0,500 C400,380 700,580 1000,440 C1250,320 1380,480 1440,400" fill="none" stroke="%230ea5e9" stroke-width="1" opacity="0.15"/></svg>');
-          animation: globalWater3D 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+        /* Wave 1: Back Deep Liquid Volume (Slow Flow) */
+        .wave-layer-back {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1300,40 1450,60 L1450,120 L0,120 Z" fill="%230284c7" opacity="0.12"/></svg>');
+          background-size: 50% 140px;
+          animation: waveMoveHorizontal 24s linear infinite, liquidFluid3D 12s ease-in-out infinite alternate;
+          bottom: 0;
         }
 
-        /* Stream 2: Deep Aqua Cyan Cyber Currents */
-        .stream-aqua-cyan {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none"><path d="M0,250 C240,380 540,180 840,320 C1140,460 1320,280 1440,380" fill="none" stroke="%2306b6d4" stroke-width="1.5" stroke-dasharray="40,15" opacity="0.18"/></svg>');
-          animation: globalWater3DInverse 25s linear infinite;
+        /* Wave 2: Mid Aqua Streaming Volume (Medium Flow) */
+        .wave-layer-mid {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,50 C200,90 400,10 600,50 C800,90 1000,10 1200,50 L1200,120 L0,120 Z" fill="%2338bdf8" opacity="0.08"/></svg>');
+          background-size: 40% 180px;
+          animation: waveMoveHorizontalInverse 16s linear infinite, liquidFluid3D 8s ease-in-out infinite alternate;
+          bottom: 5px;
         }
 
-        /* Rising Water Particles / Glowing Fluid Micro-bubbles */
-        .page-bubble {
+        /* Wave 3: Front Bright Cyan Shimmer Surface (Fast Highlight Flow) */
+        .wave-layer-front {
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,40 C300,80 500,0 700,40 C900,80 1000,10 1200,40 L1200,120 L0,120 Z" fill="%2306b6d4" opacity="0.06"/></svg>');
+          background-size: 33% 220px;
+          animation: waveMoveHorizontal 12s linear infinite, liquidFluid3D 6s ease-in-out infinite alternate;
+          bottom: 15px;
+        }
+
+        /* Solid Ambient Liquid Reflector (Gives real underwater depth feeling) */
+        .ocean-depth-gradient {
           position: absolute;
-          bottom: -5%;
-          background: linear-gradient(to top, rgba(56, 189, 248, 0.35), transparent);
-          border-radius: 50%;
-          animation: fluidRise 14s linear infinite;
-        }
-
-        @keyframes globalWater3D {
-          0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-          50% { transform: translate3d(-2%, -40px, 0) rotate(1.5deg) scale(1.03); }
-          100% { transform: translate3d(2%, -80px, 0) rotate(-1deg) scale(1); }
-        }
-
-        @keyframes globalWater3DInverse {
-          0% { transform: translate3d(1%, -20px, 0) rotate(0.5deg) scale(1.02); }
-          50% { transform: translate3d(-1%, 30px, 0) rotate(-1deg) scale(0.98); }
-          100% { transform: translate3d(1%, -20px, 0) rotate(0.5deg) scale(1.02); }
-        }
-
-        @keyframes fluidRise {
-          0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
-          15% { opacity: 0.5; }
-          85% { opacity: 0.15; }
-          100% { transform: translateY(-1000px) translateX(80px) scale(1.4); opacity: 0; }
-        }
-
-        /* Radial ambient light blue background glow */
-        .light-blue-backglow {
-          position: absolute;
-          bottom: -10%;
-          left: 20%;
-          width: 60%;
-          height: 80%;
-          background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.08) 0%, transparent 75%);
-          filter: blur(120px);
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 65%;
+          background: linear-gradient(to top, rgba(2, 132, 199, 0.15) 0%, rgba(6, 182, 212, 0.04) 45%, transparent 100%);
           pointer-events: none;
-          z-index: 0;
+        }
+
+        /* 🧼 High Contrast Glowing Water Bubbles rising from the bottom */
+        .water-fluid-bubble {
+          position: absolute;
+          bottom: -20px;
+          background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(56, 189, 248, 0.2) 70%, transparent 100%);
+          border-radius: 50%;
+          box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+          animation: bubbleRiseUp 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* Horizontal Tides Keyframes */
+        @keyframes waveMoveHorizontal {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @keyframes waveMoveHorizontalInverse {
+          0% { transform: translate3d(-50%, 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
+        }
+
+        /* 3D Vertical Liquid Floating Keyframes */
+        @keyframes liquidFluid3D {
+          0% { transform: translateY(0px) scaleY(0.95) skewX(-1deg); }
+          100% { transform: translateY(-40px) scaleY(1.05) skewX(1deg); }
+        }
+
+        /* Bubble Fluid Movement Track */
+        @keyframes bubbleRiseUp {
+          0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+          10% { opacity: 0.8; }
+          80% { opacity: 0.3; }
+          100% { transform: translateY(-1100px) translateX(90px) scale(1.3); opacity: 0; }
         }
       `}</style>
 
-      {/* RENDER INJECTED 3D LIGHT BLUE FLOW LAYERS */}
-      <div className="page-waterflow-wrapper">
-        <div className="waterflow-stream stream-light-blue"></div>
-        <div className="waterflow-stream stream-aqua-cyan"></div>
-        
-        {/* Continuous rising fluid bubbles */}
-        <div className="page-bubble" style={{ left: '15%', width: '2.5px', height: '45px', animationDelay: '0s', animationDuration: '10s' }} />
-        <div className="page-bubble" style={{ left: '40%', width: '1.5px', height: '65px', animationDelay: '3s', animationDuration: '15s' }} />
-        <div className="page-bubble" style={{ left: '65%', width: '3px', height: '35px', animationDelay: '1s', animationDuration: '12s' }} />
-        <div className="page-bubble" style={{ left: '85%', width: '2px', height: '55px', animationDelay: '5s', animationDuration: '17s' }} />
-      </div>
-      <div className="light-blue-backglow" />
+      {/* RENDER DYNAMIC WATER LAYERS */}
+      <div className="page-waterflow-container">
+        <div className="liquid-wave-layer wave-layer-back" />
+        <div className="liquid-wave-layer wave-layer-mid" />
+        <div className="liquid-wave-layer wave-layer-front" />
+        <div className="ocean-depth-gradient" />
 
+        {/* Crisp visible water bubbles */}
+        <div className="water-fluid-bubble" style={{ left: '12%', width: '6px', height: '6px', animationDelay: '0s', animationDuration: '9s' }} />
+        <div className="water-fluid-bubble" style={{ left: '35%', width: '4px', height: '4px', animationDelay: '2.5s', animationDuration: '14s' }} />
+        <div className="water-fluid-bubble" style={{ left: '58%', width: '7px', height: '7px', animationDelay: '1s', animationDuration: '11s' }} />
+        <div className="water-fluid-bubble" style={{ left: '78%', width: '5px', height: '5px', animationDelay: '4s', animationDuration: '16s' }} />
+        <div className="water-fluid-bubble" style={{ left: '92%', width: '8px', height: '8px', animationDelay: '1.5s', animationDuration: '10s' }} />
+      </div>
 
       {/* --- MAIN INTERFACE CONTENT WRAPPER --- */}
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: '#38bdf8', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 10px rgba(56,189,248,0.3)' }}>
+        <p style={{ fontSize: 10, letterSpacing: '0.38em', textTransform: 'uppercase', color: '#38bdf8', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 10px rgba(56,189,248,0.4)' }}>
           Academic Journey
         </p>
         
-        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64 }}>
+        <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5rem)', color: '#fff', textAlign: 'center', marginBottom: 64, textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}>
           Education
         </h2>
         
@@ -323,22 +336,24 @@ export default function EducationSection() {
               position: 'relative', 
               padding: '40px 32px',
               borderRadius: 16,
-              backdropFilter: 'blur(12px)',
+              backdropFilter: 'blur(14px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               overflow: 'hidden',
-              transition: 'transform 0.4s ease, border-color 0.4s ease',
+              transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               ...edu.bgStyle
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.transform = 'translateY(-6px)';
+              e.currentTarget.style.boxShadow = '0 20px 50px -10px rgba(56, 189, 248, 0.3)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = edu.bgStyle.boxShadow;
             }}
             >
-              {/* Sending the custom multi-color theme array down to the looping rendering canvas */}
+              {/* Box Embedded Custom Neon Fishes */}
               {mounted && <FishAquariumBackground colorPalette={edu.fishPalette} />}
 
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -346,7 +361,7 @@ export default function EducationSection() {
                   <p style={{ fontSize: 9, letterSpacing: '0.3em', textTransform: 'uppercase', color: edu.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {edu.tag}
                   </p>
-                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.3)' }}>
+                  <span style={{ fontSize: 10, fontFamily: 'monospace', color: 'rgba(255,255,255,0.4)' }}>
                     {edu.academicYear}
                   </span>
                 </div>
@@ -355,7 +370,7 @@ export default function EducationSection() {
                   {edu.title}
                 </h3>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, padding: '12px', background: 'rgba(0,0,0,0.3)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.02)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18, padding: '12px', background: 'rgba(0,0,0,0.4)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.04)' }}>
                   <div style={{ position: 'relative', width: 44, height: 44, flexShrink: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 6, background: 'rgba(255,255,255,0.02)' }}>
                     <Image 
                       src={edu.logoUrl} 
@@ -366,12 +381,12 @@ export default function EducationSection() {
                       priority={index === 0}
                     />
                   </div>
-                  <h4 style={{ fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.85)', lineHeight: 1.4, margin: 0, flex: 1 }}>
+                  <h4 style={{ fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,0.95)', lineHeight: 1.4, margin: 0, flex: 1 }}>
                     {edu.institution}
                   </h4>
                 </div>
 
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 4px rgba(0,0,0,0.6)' }}>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                   {edu.desc}
                 </p>
               </div>
