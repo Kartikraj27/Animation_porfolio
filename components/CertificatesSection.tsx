@@ -14,7 +14,7 @@ const ACHIEVEMENTS = [
     date: 'May 2026',
     tagColor: 'rgba(234, 179, 8, 0.95)',
     certificateUrl: '/certificates/aincat-2026.png', // Image path
-    credentialUrl: 'https://naukricampus.com/verify/your-id' // Live verification URL link
+    credentialUrl: 'https://www.naukri.com/campus/certificates/nc_ai_ncat_participation_may_2026/v0/6a199ad2542fee52d12408f0?utm_source=certificate&utm_medium=copy&utm_campaign=6a199ad2542fee52d12408f0' // Live verification URL link
   },
   {
     title: 'Data Structures and Algorithms Certification',
