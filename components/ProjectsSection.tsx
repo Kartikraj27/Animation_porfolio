@@ -84,12 +84,18 @@ export default function ProjectsSection() {
       <div className="turtle-asset t-left-2"></div>
       <div className="turtle-asset t-left-3"></div>
       <div className="turtle-asset t-left-4"></div>
+      <div className="turtle-asset t-left-5"></div>
+      <div className="turtle-asset t-left-6"></div>
+      <div className="turtle-asset t-left-7"></div>
 
       {/* 🐢 MULTIPLES OF TURTLES: RIGHT TO LEFT SIDE MOVING INJECTION */}
       <div className="turtle-asset t-right-1"></div>
       <div className="turtle-asset t-right-2"></div>
       <div className="turtle-asset t-right-3"></div>
       <div className="turtle-asset t-right-4"></div>
+      <div className="turtle-asset t-right-5"></div>
+      <div className="turtle-asset t-right-6"></div>
+      <div className="turtle-asset t-right-7"></div>
 
       {/* Interface Wrapper over background animation layers */}
       <div style={{ position: 'relative', zIndex: 1 }}>
