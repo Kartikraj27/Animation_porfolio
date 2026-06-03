@@ -157,7 +157,7 @@ export default function AboutMe() {
         
         {/* SUBTITLE */}
         <p style={{ fontSize: 11, letterSpacing: '0.4em', textTransform: 'uppercase', color: '#ff8c42', marginBottom: 16, fontWeight: 600 }}>
-          Who I Am
+          About Me
         </p>
         
         {/* MAIN HEADINGS DESIGN WITH ROLE IDENTITIES */}
