@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 // ==========================================================================
-// 🎯 DATA ARRAY (INTEGRATED WITH CERTIFICATE IMAGE DOMAIN SOURCE CORES)
+// 🎯 DATA ARRAY (INTEGRATED WITH REAL CERTIFICATE SOURCES & LIVE LINKS)
 // ==========================================================================
 const ACHIEVEMENTS = [
   {
@@ -12,9 +12,9 @@ const ACHIEVEMENTS = [
     desc: 'Successfully participated in India’s Biggest Career Aptitude Test. Evaluated on industry-grade core analytical aptitude, logical reasoning, and technical readiness alongside top candidates nationwide.',
     tag: 'National Level Assessment',
     date: 'May 2026',
-    meshStyle: 'linear-gradient(45deg, #ca8a04 0%, #713f12 100%)', // Gold Matrix Theme
     tagColor: 'rgba(234, 179, 8, 0.95)',
-    certificateUrl: '/certificates/aincat-2026.png' // Replace with your asset paths
+    certificateUrl: '/certificates/aincat-2026.png', // Image path
+    credentialUrl: 'https://naukricampus.com/verify/your-id' // Live verification URL link
   },
   {
     title: 'Data Structures and Algorithms Certification',
@@ -22,9 +22,9 @@ const ACHIEVEMENTS = [
     desc: 'Successfully completed the advanced data structures training curriculum with an elite rank. Covered complex problem solving, tree graph traversals, and dynamic programming paradigms.',
     tag: 'Technical Certificate',
     date: '2024',
-    meshStyle: 'linear-gradient(45deg, #0284c7 0%, #0c4a6e 100%)', // Sky Blue Tech Theme
     tagColor: 'rgba(14, 165, 233, 0.9)',
-    certificateUrl: '/certificates/nptel-dsa.png' // Replace with your asset paths
+    certificateUrl: '/certificates/nptel-dsa.png', // Image path
+    credentialUrl: 'https://nptel.ac.in/noc/Ecertificate/?q=your-id' // Live verification URL link
   },
   {
     title: 'Full Stack Web Development Milestone',
@@ -32,9 +32,9 @@ const ACHIEVEMENTS = [
     desc: 'Certified modern web architect covering Next.js deep compilation pipelines, production scale servers deployment, and secure API data schema integrations.',
     tag: 'Web Development',
     date: '2023',
-    meshStyle: 'linear-gradient(45deg, #4f46e5 0%, #312e81 100%)', // Indigo Cyber Theme
     tagColor: 'rgba(99, 102, 241, 0.9)',
-    certificateUrl: '/certificates/fullstack.png' // Replace with your asset paths
+    certificateUrl: '/certificates/fullstack.png', // Image path
+    credentialUrl: 'https://www.coursera.org/verify/your-id' // Live verification URL link
   },
   {
     title: 'Hackathon / College Technical Winner',
@@ -42,15 +42,24 @@ const ACHIEVEMENTS = [
     desc: 'Secured top podium position in building automated tools/applications within limited hours framework. Recognized for clean code compilation and optimal performance architecture.',
     tag: 'Achievement / Award',
     date: '2024',
-    meshStyle: 'linear-gradient(45deg, #dc2626 0%, #7f1d1d 100%)', // Crimson Achievement Theme
     tagColor: 'rgba(239, 68, 68, 0.9)',
-    certificateUrl: '/certificates/techfest-winner.png' // Replace with your asset paths
+    certificateUrl: '/certificates/techfest-winner.png', // Image path
+    credentialUrl: '#' // Replace with link if available, or keep '#'
   }
 ]
 
 export default function CertificatesSection() {
-  // --- LAYER STATE MANAGER FOR EXPANDED VIEW SCREEN ---
   const [activeCert, setActiveCert] = useState<typeof ACHIEVEMENTS[0] | null>(null)
+
+  // --- HANDLER FOR CLICK INTERACTION ---
+  const handleCardClick = (item: typeof ACHIEVEMENTS[0]) => {
+    // Agar valid external link h to naye tab me open hoga, nahi to local modal pop hoga
+    if (item.credentialUrl && item.credentialUrl !== '#') {
+      window.open(item.credentialUrl, '_blank', 'noopener,noreferrer')
+    } else {
+      setActiveCert(item)
+    }
+  }
 
   return (
     <section 
@@ -64,7 +73,7 @@ export default function CertificatesSection() {
         background: '#010311',
       }}
     >
-      {/* 🛠️ FULL-SCREEN HIGH-INTENSITY LIVE BLUE WAVE CANVAS ENGINE */}
+      {/* 🛠️ WAVES BACKGROUND SYSTEM */}
       <style>{`
         .total-page-wave-container {
           position: absolute;
@@ -134,7 +143,7 @@ export default function CertificatesSection() {
         @keyframes modalZoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
       `}</style>
 
-      {/* 🌊 BACKGROUND LIVE WAVE INTERFACE */}
+      {/* WAVE LAYERS RENDER */}
       <div className="total-page-wave-container">
         <div className="full-ambient-wave wave-vivid-cyan"></div>
         <div className="full-ambient-wave wave-vivid-electric"></div>
@@ -143,27 +152,25 @@ export default function CertificatesSection() {
       
       <div className="page-center-neon-glow"></div>
 
-      {/* Main Container Layer */}
+      {/* Main Container */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         
-        {/* SUBTITLE */}
         <p style={{ fontSize: 10, letterSpacing: '0.45em', textTransform: 'uppercase', color: '#00d2ff', marginBottom: 20, textAlign: 'center', fontWeight: 'bold', textShadow: '0 0 15px rgba(0,210,255,0.5)' }}>
           Honors & Badges
         </p>
         
-        {/* PRIMARY BEBAS NEUE HEADER */}
         <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(2.5rem,7vw,5.5rem)', color: '#fff', textAlign: 'center', marginBottom: 80, letterSpacing: '0.02em', textShadow: '0 5px 25px rgba(0,0,0,0.7)' }}>
           Certificates & Achievements
         </h2>
         
-        {/* RESPONSIVE CARD DISPLAY GRID */}
+        {/* CARDS GRID DESIGN */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(330px,1fr))', gap: 32, maxWidth: 1250, margin: '0 auto' }}>
           {ACHIEVEMENTS.map((item, index) => (
             <div 
               key={index} 
-              onClick={() => setActiveCert(item)} // Click action to trigger view modal
+              onClick={() => handleCardClick(item)} // Dynamic link/modal routing engine
               style={{
-                padding: '36px 32px',
+                padding: '24px',
                 borderRadius: 24,
                 border: '1px solid rgba(255,255,255,0.09)',
                 background: 'rgba(5, 10, 25, 0.48)', 
@@ -187,36 +194,27 @@ export default function CertificatesSection() {
               }}
             >
               <div>
-                {/* 🖼️ INTEGRATED DYNAMIC CERTIFICATE IMAGE PLACEHOLDER NODE */}
+                {/* 🖼️ NORMAL CLEAN IMAGE SNIPPET (NO FILLER GRADIENTS OR GRAPHICS) */}
                 <div style={{ 
                   position: 'relative', 
                   width: '100%', 
-                  height: '155px', 
+                  height: '190px', 
                   borderRadius: 16, 
-                  marginBottom: 26, 
-                  background: item.meshStyle,
+                  marginBottom: 22, 
                   overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  background: '#03050c',
+                  border: '1px solid rgba(255,255,255,0.05)'
                 }}>
-                  {/* Subtle Image Preview on Card Background */}
-                  <div style={{ position: 'absolute', width: '100%', height: '100%', opacity: 0.15 }}>
-                    <Image 
-                      src={item.certificateUrl} 
-                      alt="Preview Mesh" 
-                      fill 
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  
-                  <span style={{ position: 'relative', zIndex: 1, fontSize: 10, fontFamily: 'monospace', color: '#fff', letterSpacing: '0.22em', textTransform: 'uppercase', background: 'rgba(0,0,0,0.4)', padding: '6px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.1)' }}>
-                    View Credential • 0{index + 1}
-                  </span>
+                  <Image 
+                    src={item.certificateUrl} 
+                    alt={item.title}
+                    fill 
+                    style={{ objectFit: 'cover' }} // Keeps it clean like a native photo gallery view
+                    unoptimized
+                  />
                 </div>
 
-                {/* Sub tags row */}
+                {/* Tags Metadata tracking row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
                   <p style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: item.tagColor, margin: 0, fontWeight: 'bold' }}>
                     {item.tag}
@@ -238,17 +236,24 @@ export default function CertificatesSection() {
                   {item.desc}
                 </p>
               </div>
+
+              {/* Dynamic Action indicator at the bottom */}
+              <div style={{ marginTop: 20, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ fontSize: 11, fontFamily: 'monospace', color: item.tagColor }}>
+                  {item.credentialUrl !== '#' ? '🔗 Follow Link Node →' : '🔍 View Full Nodes'}
+                </span>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* ==========================================================================
-          🖼️ FLOATING GLASSMORPHIC CERTIFICATE MODAL ENGINE VIEWPORT
+          🖼️ ACCESSIBLE OPTIONAL LIGHTROOM PREVIEW MODAL FRAMEWAY
          ========================================================================== */}
       {activeCert && (
         <div 
-          onClick={() => setActiveCert(null)} // Close modal when backdrop frame is touched
+          onClick={() => setActiveCert(null)}
           style={{
             position: 'fixed',
             top: 0,
@@ -256,7 +261,7 @@ export default function CertificatesSection() {
             width: '100vw',
             height: '100vh',
             zIndex: 9999,
-            background: 'rgba(1, 3, 12, 0.82)',
+            background: 'rgba(1, 3, 12, 0.88)',
             backdropFilter: 'blur(20px)',
             display: 'flex',
             alignItems: 'center',
@@ -266,7 +271,7 @@ export default function CertificatesSection() {
           }}
         >
           <div 
-            onClick={(e) => e.stopPropagation()} // Intercepts propagation paths to block parent closures
+            onClick={(e) => e.stopPropagation()} 
             style={{
               background: '#070913',
               border: '1px solid rgba(255,255,255,0.08)',
@@ -278,9 +283,7 @@ export default function CertificatesSection() {
               animation: 'modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
           >
-            {/* HD SOURCE VISUAL PORT */}
             <div style={{ position: 'relative', width: '100%', height: '440px', background: '#02040a', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-              
               <Image 
                 src={activeCert.certificateUrl}
                 alt={activeCert.title}
@@ -289,7 +292,6 @@ export default function CertificatesSection() {
                 unoptimized
               />
 
-              {/* TOP CORNER CLOSURE AXIS BUTTON */}
               <button 
                 onClick={() => setActiveCert(null)}
                 style={{
@@ -307,22 +309,12 @@ export default function CertificatesSection() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  transition: 'all 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'rgba(0,0,0,0.7)';
-                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
                 ✕
               </button>
             </div>
 
-            {/* METADATA BLOCK SUMMARY DESCRIPTION */}
             <div style={{ padding: '36px 44px', background: '#070913' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 20, marginBottom: 16 }}>
                 <div style={{ flex: 1, minWidth: '280px' }}>
@@ -350,7 +342,6 @@ export default function CertificatesSection() {
           </div>
         </div>
       )}
-
     </section>
   )
 }
