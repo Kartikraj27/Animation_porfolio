@@ -147,7 +147,7 @@ const EDUCATION = [
     title: 'Higher Secondary (12th / Intermediate)',
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
-    institution: 'Your 12th School Name, City', 
+    institution: 'Mahant Hanuman Saran High School, Patna', 
     logoUrl: '/school.png',
     academicYear: '2020 - 2022',
     bgStyle: {
@@ -167,7 +167,7 @@ const EDUCATION = [
     title: 'Matriculation (10th / High School)',
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
-    institution: 'Doon Senior Secondary School', 
+    institution: 'Doon Senior Secondary School, Mazaffarpur', 
     logoUrl: '/Doon.png', 
     academicYear: '2019 - 2020',
     bgStyle: {
