@@ -7,6 +7,16 @@ import { useState } from 'react'
 // ==========================================================================
 const ACHIEVEMENTS = [
   {
+    title: 'Oracle Certified Foundations Associate – AI (2026)',
+    authority: 'Oracle University',
+    desc: 'Earned official recognition from Oracle Corporation, validating technical understanding of contemporary Artificial Intelligence methodologies and cloud services.',
+    tag: 'Cloud & AI Credential',
+    date: 'June 2026', // Certificate par June 03, 2026 printed hai
+    tagColor: 'rgba(234, 179, 8, 0.95)',
+    certificateUrl: '/eCertificate.pdf', 
+    credentialUrl: '103468748OCI25AICFA' // Certificate ID
+  },
+  {
     title: 'Naukri Campus Aptitude Test (AINCAT 2026)',
     authority: 'Naukri Campus (Powered by DoSelect)',
     desc: 'Successfully participated in India’s Biggest Career Aptitude Test. Evaluated on industry-grade core analytical aptitude, logical reasoning, and technical readiness alongside top candidates nationwide.',
