@@ -1,8 +1,8 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, FormEvent } from 'react'
 
 // ==========================================================================
-// 🧠 MULTILINGUAL KNOWLEDGE BASE ENGINE (Data Matrix)
+// 🧠 KARTIK RAJ'S ACTUAL PORTFOLIO DATA HUB
 // ==========================================================================
 const PORTFOLIO_DATA = {
   profile: {
@@ -11,58 +11,77 @@ const PORTFOLIO_DATA = {
     college: 'Government Engineering College (GEC), Vaishali',
     currentStatus: '8th Semester, B.Tech in Computer Science Engineering (CSE)'
   },
-  skills: ['Next.js', 'React.js', 'JavaScript', 'Java', 'Android', 'DSA', 'MySQL']
+  skills: [
+    'Next.js', 'React.js', 'JavaScript (ES6+)', 'HTML5/CSS3', 
+    'Java', 'Android Development', 'Data Structures & Algorithms (DSA)', 
+    'MySQL', 'Cloud Computing'
+  ],
+  experience: [
+    'Software Development Engineer (SDE) Intern at Zorvyn FinTech (6 Months)',
+    'Technical Intern at CodSoft (Android & Java Pipeline)',
+    'Labmentix Engineering Orientation Program'
+  ],
+  certifications: [
+    'NPTEL / Swayam (IIT) - Data Structures & Algorithms (Elite Rank)',
+    'Naukri Campus National Level Aptitude Test (AINCAT 2026)',
+    'Cisco Networking Academy (CCNA Modules, Automation & Security)',
+    'Full Stack Web Development & Database Architecture Milestone'
+  ]
 }
 
+// ==========================================================================
+// 🌐 MULTILINGUAL DICTIONARY & SUGGESTIONS INTERFACE
+// ==========================================================================
 const LANG_RESOURCES = {
   en: {
     welcome: "Hi! I am Kartik's AI Assistant. Ask me anything about my projects, skills, or experience!",
     placeholder: "Type in any language...",
     send: "Send",
-    suggestions: ["Who is Kartik?", "What are his technical skills?", "Tell me about his internships.", "Where did he study?"]
+    suggestions: ["Who is Kartik?", "What are his technical skills?", "Tell me about his internships.", "Show his certifications."]
   },
   hi: {
-    welcome: "नमस्ते! मैं कार्तिक का एआई असिस्टेंट हूँ। मेरे से उनके प्रोजेक्ट्स या स्किल्स के बारे में कुछ भी पूछें!",
+    welcome: "नमस्ते! मैं कार्तिक का एआई असिस्टेंट हूँ। मेरे से उनके प्रोजेक्ट्स, स्किल्स या इंटर्नशिप के बारे में कुछ भी पूछें!",
     placeholder: "अपनी भाषा में टाइप करें...",
     send: "भेजें",
-    suggestions: ["कार्तिक कौन है?", "कार्तिक को क्या-क्या आता है?", "उनकी इंटर्नशिप के बारे में बताएं।", "उन्होंने कहाँ से पढ़ाई की है?"]
+    suggestions: ["कार्तिक कौन है?", "कार्तिक को क्या-क्या आता है?", "उनकी इंटर्नशिप के बारे में बताएं।", "उनके सर्टिफिकेट्स दिखाएं।"]
   },
   fr: {
-    welcome: "Bonjour! Je suis l'assistant IA de Kartik.",
+    welcome: "Bonjour! Je suis l'assistant IA de Kartik. Posez-moi des questions sur ses compétences ou ses stages.",
     placeholder: "Tapez dans n'importe quelle langue...",
     send: "Envoyer",
-    suggestions: ["Qui est Kartik ?", "Quelles sont ses compétences ?", "Parlez-moi de ses stages.", "Où a-t-il étudié ?"]
+    suggestions: ["Qui est Kartik ?", "Quelles sont ses compétences ?", "Parlez-moi de ses stages.", "Ses certifications ?"]
   },
   ja: {
-    welcome: "こんにちは！カルティクのAIアシスタントです。",
+    welcome: "こんにちは！カルティクのAIアシスタントです。彼のスキルやインターンシップについて質問してください。",
     placeholder: "何でも聞いてください...",
     send: "送信",
-    suggestions: ["カルティクとは誰ですか？", "彼のコアスキルは何ですか？", "インターンシップの経験は？", "彼はどこの大学ですか？"]
+    suggestions: ["カルティクとは誰ですか？", "彼のコアスキルは何ですか？", "インターンシップの経験は？", "資格は何を持っていますか？"]
   },
   te: {
-    welcome: "నమస్కారం! నేను కార్తీక్ యొక్క AI అసిస్టెంట్‌ని.",
+    welcome: "నమస్కారం! నేను కార్తీక్ యొక్క AI అసిస్టెంట్‌ని. అతని స్కిల్స్ మరియు ఇంటర్న్‌షిప్స్ గురించి నన్ను ఏదైనా అడగవచ్చు.",
     placeholder: "ఏదైనా భాషలో టైప్ చేయండి...",
     send: "పంపండి",
-    suggestions: ["కార్తీక్ ఎవరు?", "అతని నైపుణ్యాలు ఏమిటి?", "అతని ఇంటర్న్‌షిప్‌ల గురించి చెప్పండి.", "అతను ఎక్కడ చదువుకున్నాడు?"]
+    suggestions: ["కార్తీక్ ఎవరు?", "అతని నైపుణ్యాలు ఏమిటి?", "అతని ఇంటర్న్‌షిప్‌ల గురించి చెప్పండి.", "అతని సర్టిఫికేట్లు ఏమిటి?"]
   }
 }
 
 type LangKey = 'en' | 'hi' | 'fr' | 'ja' | 'te';
-interface Message {
+
+interface MessageStructure {
   id: number;
   sender: 'ai' | 'user';
   text: string;
 }
 
 export default function PortfolioChatbot() {
-  const [mounted, setMounted] = useState(false) // Hydration Error Fixer
-  const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [currentLang, setCurrentLang] = useState<LangKey>('en')
-  const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState('')
+  const [messages, setMessages] = useState<MessageStructure[]>([])
+  const [input, setInput] = useState<string>('');
   const chatEndRef = useRef<HTMLDivElement>(null)
 
-  // Component mount hone ke baad hi render hoga (Prevents Hydration Error)
+  // Prevents Server-Side Hydration Conflicts
   useEffect(() => {
     setMounted(true)
     setMessages([{ id: 1, sender: 'ai', text: LANG_RESOURCES['en'].welcome }])
@@ -74,12 +93,16 @@ export default function PortfolioChatbot() {
     }
   }, [messages, isOpen])
 
-  if (!mounted) return null // Client par aane tak kuch render nahi karega
+  if (!mounted) return null
 
-  const detectLanguageAndRespond = (userQuery: string, forcedLang?: LangKey): string => {
+  // ==========================================================================
+  // 🎯 CORE NLP INTELLIGENCE ROUTER ENGINE
+  // ==========================================================================
+  const handleAIResponseRouting = (userQuery: string, forcedLang?: LangKey): string => {
     const q = userQuery.toLowerCase()
     let lang: LangKey = forcedLang || 'en'
 
+    // Auto Language Tracking Mechanism
     if (!forcedLang) {
       if (q.includes('naam') || q.includes('kaun') || q.includes('kya') || q.includes('padhai') || /[\u0900-\u097F]/.test(q)) lang = 'hi'
       else if (q.includes('qui') || q.includes('nom') || q.includes('étud') || q.includes('stage')) lang = 'fr'
@@ -89,57 +112,83 @@ export default function PortfolioChatbot() {
 
     setCurrentLang(lang)
 
+    // --- HINDI / HINGLISH SYSTEM OUTPUT ---
     if (lang === 'hi') {
-      if (q.includes('naam') || q.includes('kaun') || q.includes('कौन')) return `यह पोर्टफोलियो ${PORTFOLIO_DATA.profile.name} का है। वह एक ${PORTFOLIO_DATA.profile.role} हैं।`
-      if (q.includes('college') || q.includes('education') || q.includes('पढ़ाई') || q.includes('कहां')) return `कार्तिक ${PORTFOLIO_DATA.profile.college} से CSE में B.Tech कर रहे हैं और अभी 8th सेमेस्टर में हैं।`
-      if (q.includes('intern') || q.includes('experience') || q.includes('काम') || q.includes('job')) return `कार्तिक ने Zorvyn FinTech में SDE Intern के रूप में और CodSoft में टेक्निकल इंटर्नशिप की है।`
-      return `कार्तिक की स्किल्स ये हैं: ${PORTFOLIO_DATA.skills.join(', ')}।`
-    }
-    
-    if (lang === 'fr') {
-      if (q.includes('nom') || q.includes('qui')) return `Ce portfolio appartient à ${PORTFOLIO_DATA.profile.name}.`
-      return `Kartik étudie au ${PORTFOLIO_DATA.profile.college}. Compétences: ${PORTFOLIO_DATA.skills.join(', ')}.`
+      if (q.includes('naam') || q.includes('kaun') || q.includes('कौन')) {
+        return `यह पोर्टफोलियो ${PORTFOLIO_DATA.profile.name} का है। वह एक ${PORTFOLIO_DATA.profile.role} हैं।`
+      }
+      if (q.includes('college') || q.includes('education') || q.includes('पढ़ाई') || q.includes('कहां') || q.includes('study')) {
+        return `कार्तिक ${PORTFOLIO_DATA.profile.college} से Computer Science Engineering में B.Tech कर रहे हैं और अभी अपने अंतिम (8th) सेमेस्टर में हैं।`
+      }
+      if (q.includes('intern') || q.includes('experience') || q.includes('काम') || q.includes('job')) {
+        return `कार्तिक के पास बेहतरीन इंटर्नशिप अनुभव है:\n- Zorvyn FinTech में SDE Intern (6 Months)\n- CodSoft में Technical Intern (Android & Java)\n- Labmentix Orientation`
+      }
+      if (q.includes('certificat') || q.includes('sertifiket') || q.includes('nptel') || q.includes('ccna')) {
+        return `कार्तिक के मुख्य सर्टिफिकेशन्स:\n${PORTFOLIO_DATA.certifications.map(c => `• ${c}`).join('\n')}`
+      }
+      return `कार्तिक के पास ये सब टेक्निकल कोर स्किल्स हैं: ${PORTFOLIO_DATA.skills.join(', ')}।`
     }
 
+    // --- FRENCH SYSTEM OUTPUT ---
+    if (lang === 'fr') {
+      if (q.includes('nom') || q.includes('qui')) return `Ce portfolio appartient à ${PORTFOLIO_DATA.profile.name}. Il est un ${PORTFOLIO_DATA.profile.role}.`
+      if (q.includes('étud') || q.includes('ecole')) return `Kartik étudie au ${PORTFOLIO_DATA.profile.college} (8ème semestre).`
+      if (q.includes('stage') || q.includes('expérienc')) return `Il a travaillé chez Zorvyn FinTech en tant que stagiaire SDE.`
+      return `Compétences de Kartik: ${PORTFOLIO_DATA.skills.join(', ')}.`
+    }
+
+    // --- JAPANESE SYSTEM OUTPUT ---
     if (lang === 'ja') {
       if (q.includes('名前') || q.includes('だれ')) return `これは${PORTFOLIO_DATA.profile.name}のポートフォリオです。`
-      return `カルティクは${PORTFOLIO_DATA.profile.college}の学生です。コアスキル：${PORTFOLIO_DATA.skills.join(', ')}。`
+      if (q.includes('大学') || q.includes('学校')) return `${PORTFOLIO_DATA.profile.college}の第8セメスター（最終学年）に在籍しています。`
+      if (q.includes('インターン')) return `Zorvyn FinTechのSDEインターンやCodSoftの技術インターンを経験しています。`
+      return `カルティクのスキル：${PORTFOLIO_DATA.skills.join(', ')}。`
     }
 
+    // --- TELUGU SYSTEM OUTPUT ---
     if (lang === 'te') {
       if (q.includes('పేరు') || q.includes('ఎవరు')) return `ఈ పోర్ట్‌ఫోలియో ${PORTFOLIO_DATA.profile.name} ది.`
-      return `కార్తీక్ ${PORTFOLIO_DATA.profile.college} లో చదువుతున్నాడు. నైపుణ్యాలు: ${PORTFOLIO_DATA.skills.join(', ')}.`
+      if (q.includes('చదువు') || q.includes('కాలేజ్')) return `కార్తీక్ ${PORTFOLIO_DATA.profile.college} లో బి.టెక్ (CSE) 8వ సెమిస్టర్ చదువుతున్నాడు.`
+      if (q.includes('ఇంటర్న్') || q.includes('పని')) return `అతను Zorvyn FinTech లో SDE ఇంటర్న్‌గా పనిచేశాడు.`
+      return `కార్తీక్ నైపుణ్యాలు: ${PORTFOLIO_DATA.skills.join(', ')}.`
     }
 
+    // --- DEFAULT ENGLISH PIPELINE ---
     if (q.includes('name') || q.includes('who')) return `This portfolio belongs to ${PORTFOLIO_DATA.profile.name}. He is a ${PORTFOLIO_DATA.profile.role}.`
-    if (q.includes('college') || q.includes('education')) return `Kartik is pursuing B.Tech in CSE from ${PORTFOLIO_DATA.profile.college}.`
-    return `Kartik's core expertise includes: ${PORTFOLIO_DATA.skills.join(', ')}.`
+    if (q.includes('college') || q.includes('education') || q.includes('where')) return `Kartik is pursuing his B.Tech in CSE from ${PORTFOLIO_DATA.profile.college} and is currently in his 8th semester.`
+    if (q.includes('intern') || q.includes('experience') || q.includes('work')) {
+      return `Kartik's professional experiences include:\n${PORTFOLIO_DATA.experience.map(e => `• ${e}`).join('\n')}`
+    }
+    if (q.includes('certificat') || q.includes('credential')) {
+      return `Kartik's verified credentials:\n${PORTFOLIO_DATA.certifications.map(c => `• ${c}`).join('\n')}`
+    }
+    return `Kartik's core software engineering skillset features: ${PORTFOLIO_DATA.skills.join(', ')}.`
+  }
+
+  const triggerChatResponse = (textInput: string, forcedLang?: LangKey) => {
+    const aiResponseText = handleAIResponseRouting(textInput, forcedLang)
+    setMessages((prev) => [...prev, { id: Date.now() + 1, sender: 'ai', text: aiResponseText }])
   }
 
   const handleSuggestionClick = (suggestionText: string) => {
-    const userMessage: Message = { id: Date.now(), sender: 'user', text: suggestionText }
-    setMessages((prev) => [...prev, userMessage])
-    setTimeout(() => {
-      const aiText = detectLanguageAndRespond(suggestionText, currentLang)
-      setMessages((prev) => [...prev, { id: Date.now() + 1, sender: 'ai', text: aiText }])
-    }, 400)
+    const userMsg: MessageStructure = { id: Date.now(), sender: 'user', text: suggestionText }
+    setMessages((prev) => [...prev, userMsg])
+    setTimeout(() => triggerChatResponse(suggestionText, currentLang), 350)
   }
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  const handleSendMessage = (e: FormEvent) => {
     e.preventDefault()
     if (!input.trim()) return
-    const userMessage: Message = { id: Date.now(), sender: 'user', text: input }
-    setMessages((prev) => [...prev, userMessage])
+    const userMsg: MessageStructure = { id: Date.now(), sender: 'user', text: input }
+    setMessages((prev) => [...prev, userMsg])
+    const cachedInput = input
     setInput('')
-    setTimeout(() => {
-      const aiText = detectLanguageAndRespond(userMessage.text)
-      setMessages((prev) => [...prev, { id: Date.now() + 1, sender: 'ai', text: aiText }])
-    }, 400)
+    setTimeout(() => triggerChatResponse(cachedInput), 350)
   }
 
   return (
     <>
-      {/* 💬 FLOATING CHAT BUTTON */}
+      {/* 💬 FLOATING CHAT SPHERE ACTUATOR */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         style={{
@@ -152,7 +201,7 @@ export default function PortfolioChatbot() {
         {isOpen ? '✕' : '💬'}
       </button>
 
-      {/* 🖼️ DYNAMIC MULTILINGUAL CHAT WINDOW */}
+      {/* 🖼️ HIGH-LEVEL INTERACTIVE PORTFOLIO CONSOLE WINDOW */}
       {isOpen && (
         <div
           style={{
@@ -163,7 +212,7 @@ export default function PortfolioChatbot() {
             overflow: 'hidden', zIndex: 99999
           }}
         >
-          {/* HEADER */}
+          {/* HEADER NODE BAR */}
           <div style={{ padding: '20px', background: 'linear-gradient(90deg, rgba(5,10,25,0.6) 0%, rgba(0,102,255,0.15) 100%)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
               <h4 style={{ margin: 0, color: '#fff', fontSize: '15px', fontWeight: 600 }}>Kartik's Multi-AI</h4>
@@ -176,13 +225,13 @@ export default function PortfolioChatbot() {
             </div>
           </div>
 
-          {/* MESSAGES HUB */}
+          {/* CHAT MESSAGES LOG DISPLAY */}
           <div style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {messages.map((msg) => (
               <div key={msg.id} style={{ display: 'flex', justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start' }}>
                 <div style={{
                   maxWidth: '85%', padding: '12px 16px', borderRadius: msg.sender === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                  background: msg.sender === 'user' ? '#0066ff' : 'rgba(255,255,255,0.05)', color: '#fff', fontSize: '13.5px', lineHeight: '1.5'
+                  background: msg.sender === 'user' ? '#0066ff' : 'rgba(255,255,255,0.05)', color: '#fff', fontSize: '13.5px', lineHeight: '1.5', whiteSpace: 'pre-line'
                 }}>
                   {msg.text}
                 </div>
@@ -191,7 +240,7 @@ export default function PortfolioChatbot() {
             <div ref={chatEndRef} />
           </div>
 
-          {/* SUGGESTIONS */}
+          {/* DYNAMIC SUGGESTION PILLS AREA */}
           <div style={{ padding: '0 20px 12px 20px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {LANG_RESOURCES[currentLang].suggestions.map((suggestion, index) => (
@@ -210,7 +259,7 @@ export default function PortfolioChatbot() {
             </div>
           </div>
 
-          {/* INPUT FORM */}
+          {/* INPUT FORM PIPELINE TERMINAL */}
           <form onSubmit={handleSendMessage} style={{ padding: '16px', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: '10px', background: 'rgba(3, 5, 12, 0.4)' }}>
             <input
               type="text" value={input} onChange={(e) => setInput(e.target.value)}
