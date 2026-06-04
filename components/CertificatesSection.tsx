@@ -14,7 +14,7 @@ const ACHIEVEMENTS = [
     date: 'June 2026', // Certificate par June 03, 2026 printed hai
     tagColor: 'rgba(234, 179, 8, 0.95)',
     certificateUrl: '/eCertificate.png', 
-    credentialUrl: '103468748OCI25AICFA' // Certificate ID
+    credentialUrl: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=0E8AC6A0EAB4FF0E8A78B154DA20A02C00FBEBED09B0254847CE1B2AC514572C' // Certificate ID
   },
   {
     title: 'Naukri Campus Aptitude Test (AINCAT 2026)',
