@@ -167,7 +167,7 @@ const EDUCATION = [
     title: 'Matriculation (10th / High School)',
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
-    institution: 'Doon Senior Secondary School, Mazaffarpur', 
+    institution: 'Doon Senior Secondary School, Muzaffarpur', 
     logoUrl: '/Doon.png', 
     academicYear: '2019 - 2020',
     bgStyle: {
