@@ -7,6 +7,16 @@ interface AquariumProps {
   colorPalette: string[]; // Group of multiple fish colors
 }
 
+// Fixed explicit structural type interface for stability
+interface FishNode {
+  x: number;
+  y: number;
+  size: number;
+  speed: number;
+  tailWiggle: number;
+  color: string;
+}
+
 function FishAquariumBackground({ colorPalette }: AquariumProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
@@ -18,24 +28,20 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    // FIX: Added bulletproof fallback metrics if parentElement is momentarily missing
     const resizeCanvas = () => {
-      if (canvas && canvas.parentElement) {
-        canvas.width = canvas.parentElement.offsetWidth || 350
-        canvas.height = canvas.parentElement.offsetHeight || 450
+      if (canvas) {
+        const parent = canvas.parentElement;
+        canvas.width = parent ? parent.offsetWidth : 350
+        canvas.height = parent ? parent.offsetHeight : 450
       }
     }
     
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    const fishes: Array<{
-      x: number
-      y: number
-      size: number
-      speed: number
-      tailWiggle: number
-      color: string;
-    }> = []
+    // FIX: Strongly typed array signature to prevent injection compilation errors
+    const fishes: FishNode[] = []
 
     for (let i = 0; i < 10; i++) {
       fishes.push({
