@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 
 // ==========================================================================
 // 🎯 CONTACTS DATA ARRAY (INTEGRATED FROM YOUR INJECTED CODE PARAMS)
@@ -52,6 +53,25 @@ const CONTACTS = [
 ]
 
 export default function ContactSection() {
+  const [visitCount, setVisitCount] = useState<number>(0)
+
+  useEffect(() => {
+    // 📊 Browser Safe Persistent Local Storage Mechanism
+    const savedVisits = localStorage.getItem('kartik_portfolio_visits')
+    let currentVisits = savedVisits ? parseInt(savedVisits, 10) : 0
+    
+    // Session state block tracking parameter to prevent duplicate count on fast layout re-renders
+    const isSessionActive = sessionStorage.getItem('kartik_session_tracked')
+    
+    if (!isSessionActive) {
+      currentVisits += 1
+      localStorage.setItem('kartik_portfolio_visits', currentVisits.toString())
+      sessionStorage.setItem('kartik_session_tracked', 'true')
+    }
+    
+    setVisitCount(currentVisits)
+  }, [])
+
   return (
     <section 
       id="contact" 
@@ -62,7 +82,7 @@ export default function ContactSection() {
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: 'center',
-        padding: '120px 40px', 
+        padding: '120px 40px 140px 40px', // Extra bottom spacing map over counter layout
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
@@ -116,27 +136,15 @@ export default function ContactSection() {
 
         /* ⚙️ 2160p Cinematic Displacement Wave Keyframes */
         @keyframes aavfxStripMotion {
-          0% {
-            transform: translate3d(0, 0, 0) scale(1) rotate(1deg);
-          }
-          50% {
-            transform: translate3d(-5%, -40px, 0) scale(1.05) rotate(-1deg);
-          }
-          100% {
-            transform: translate3d(-10%, 20px, 0) scale(1) rotate(1deg);
-          }
+          0% { transform: translate3d(0, 0, 0) scale(1) rotate(1deg); }
+          50% { transform: translate3d(-5%, -40px, 0) scale(1.05) rotate(-1deg); }
+          100% { transform: translate3d(-10%, 20px, 0) scale(1) rotate(1deg); }
         }
 
         @keyframes aavfxStripMotionInverse {
-          0% {
-            transform: translate3d(-10%, 0, 0) scale(1.05) rotate(-2deg);
-          }
-          50% {
-            transform: translate3d(-5%, 50px, 0) scale(0.98) rotate(0deg);
-          }
-          100% {
-            transform: translate3d(0, 0, 0) scale(1.05) rotate(-2deg);
-          }
+          0% { transform: translate3d(-10%, 0, 0) scale(1.05) rotate(-2deg); }
+          50% { transform: translate3d(-5%, 50px, 0) scale(0.98) rotate(0deg); }
+          100% { transform: translate3d(0, 0, 0) scale(1.05) rotate(-2deg); }
         }
 
         /* ✨ HIGH END SPECTRAL AMBIENT OVERLAY */
@@ -200,8 +208,8 @@ export default function ContactSection() {
                 padding: '36px 24px',
                 border: '1px solid rgba(255,255,255,0.07)',
                 borderRadius: 20,
-                background: 'rgba(6, 4, 18, 0.45)', // Crystal layer transparency to pass waving strips look
-                backdropFilter: 'blur(35px)', // Premium UI glass distortion
+                background: 'rgba(6, 4, 18, 0.45)',
+                backdropFilter: 'blur(35px)',
                 color: '#fff', 
                 textDecoration: 'none',
                 transition: 'border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s',
@@ -210,7 +218,7 @@ export default function ContactSection() {
               onMouseEnter={e => {
                 const el = e.currentTarget
                 el.style.borderColor = c.accentColor
-                el.style.background = `delay(0s) linear-gradient(145deg, rgba(6,4,18,0.6), ${c.accentColor}0a)`
+                el.style.background = `linear-gradient(145deg, rgba(6,4,18,0.6), ${c.accentColor}0a)`
                 el.style.transform = 'translateY(-8px)'
                 el.style.boxShadow = `0 15px 35px -10px ${c.accentColor}35`
               }}
@@ -222,7 +230,6 @@ export default function ContactSection() {
                 el.style.boxShadow = '0 20px 45px -15px rgba(0,0,0,0.6)'
               }}
             >
-              {/* Dynamic Hexagon/Circle Avatar Frame */}
               <div style={{
                 width: 54, 
                 height: 54, 
@@ -259,6 +266,39 @@ export default function ContactSection() {
             </a>
           ))}
         </div>
+
+        {/* ========================================================================== */}
+        {/* 📊 INTEGRATED PREMIUM VISITOR ANALYTICS NODE (Sabse Niche Wala Slide Matrix) */}
+        {/* ========================================================================== */}
+        <div style={{ 
+          marginTop: '70px', 
+          display: 'inline-flex', 
+          alignItems: 'center', 
+          gap: '12px', 
+          background: 'rgba(6, 4, 18, 0.6)', 
+          border: '1px solid rgba(255, 255, 255, 0.05)', 
+          backdropFilter: 'blur(20px)',
+          padding: '12px 24px', 
+          borderRadius: '30px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+          transition: 'border-color 0.3s'
+        }}
+        onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255, 140, 66, 0.3)'}
+        onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)'}
+        >
+          <span style={{ 
+            width: '8px', 
+            height: '8px', 
+            background: '#ff8c42', 
+            borderRadius: '50%', 
+            boxShadow: '0 0 10px #ff8c42', 
+            display: 'inline-block' 
+          }}></span>
+          <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', fontFamily: 'monospace', letterSpacing: '0.1em' }}>
+            TOTAL SYSTEM VISITS : <strong style={{ color: '#fff', fontSize: '14px', fontFamily: 'monospace' }}>{visitCount}</strong>
+          </span>
+        </div>
+
       </div>
     </section>
   )
