@@ -1,22 +1,17 @@
-import HeroSection from '@/components/HeroSection'
-import AboutSection from '@/components/AboutSection'
-import ProjectsSection from '@/components/ProjectsSection'
-import EducationSection from '@/components/Education'
-import CertificatesSection from '@/components/CertificatesSection' // Newly included honors structure
-import ContactSection from '@/components/ContactSection'
+// app/page.tsx
+import HeroSection from '@/components/Hero'          // Aapka existing component
+import ProjectsSection from '@/components/Projects'  // Aapka existing component
+import PortfolioChatbot from '@/components/PortfolioChatbot' // <--- 1. CHATBOT IMPORT KAREIN
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ position: 'relative', minHeight: '100vh' }}>
+      {/* Aapke portfolio ke baaki saare sections yahan honge */}
       <HeroSection />
-      <AboutSection />
       <ProjectsSection />
-      <EducationSection />
       
-      {/* Certificates & Achievements follows immediately after education grid sequence */}
-      <CertificatesSection />
-      
-      <ContactSection />
+      {/* 2. CHATBOT KO BILKUL AAKHIRI ME RAKHEIN */}
+      <PortfolioChatbot />
     </main>
   )
 }
