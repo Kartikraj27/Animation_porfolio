@@ -13,7 +13,7 @@ const ACHIEVEMENTS = [
     tag: 'Cloud & AI Credential',
     date: 'June 2026', // Certificate par June 03, 2026 printed hai
     tagColor: 'rgba(234, 179, 8, 0.95)',
-    certificateUrl: '/eCertificate.pdf', 
+    certificateUrl: '/eCertificate.png', 
     credentialUrl: '103468748OCI25AICFA' // Certificate ID
   },
   {
