@@ -169,7 +169,7 @@ const EDUCATION = [
     tag: 'General Secondary Education',
     institution: 'Doon Senior Secondary School, Muzaffarpur', 
     logoUrl: '/Doon.png', 
-    academicYear: '2019 - 2020',
+    academicYear: '2018 - 2020',
     bgStyle: {
       background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.45) 0%, rgba(10, 10, 10, 0.8) 100%)',
       border: '1px solid rgba(221, 107, 32, 0.3)',
