@@ -322,6 +322,15 @@ export default function AboutMe() {
                   </div>
                 </div>
               </div>
+              <div style={{ background: 'rgba(255,255,255,0.01)', padding: '14px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.02)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '5px' }}>
+                      <strong style={{ color: '#fff', fontSize: '14px' }}>Matriculation (Class X) - General Subjects</strong>
+                      <span style={{ color: '#a0aec0', fontSize: '12px', fontFamily: 'monospace' }}>2018 - 2020</span>
+                    </div>
+                    <p style={{ margin: '4px 0 0 0', color: 'rgba(255,255,255,0.5)', fontSize: '13px' }}>Doon Senior Secondary School, Muzaffarpur</p>
+                  </div>
+                </div>
+              </div>
 
               {/* Technical Experience Framework */}
               <div>
@@ -358,6 +367,12 @@ export default function AboutMe() {
                 <h4 style={{ color: '#ff8c42', margin: '0 0 14px 0', fontSize: '13px', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase' }}>// 04. Credentials & Badges</h4>
                 <ul style={{ margin: 0, paddingLeft: '18px', color: 'rgba(255,255,255,0.7)', fontSize: '13.5px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <li><strong>Oracle Certified Foundations Associate Artificial Intelligence (2026)</strong> - OCI Cloud-driven solutions.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 style={{ color: '#ff8c42', margin: '0 0 14px 0', fontSize: '13px', fontFamily: 'monospace', letterSpacing: '0.2em', textTransform: 'uppercase' }}>// 04. Credentials & Badges</h4>
+                <ul style={{ margin: 0, paddingLeft: '18px', color: 'rgba(255,255,255,0.7)', fontSize: '13.5px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <li><strong>AINCAT 2026 Participation (Naukri Campus)</strong> - Naukari Campus Apitude Test.</li>
                 </ul>
               </div>
 
