@@ -13,7 +13,7 @@ const ACHIEVEMENTS = [
     tag: 'Cloud & AI Credential',
     date: 'June 2026', // Certificate par June 03, 2026 printed hai
     tagColor: 'rgba(234, 179, 8, 0.95)',
-    certificateUrl: '/eCertificate.png', 
+    certificateUrl: '/eCertificate.png,'/badbges.png' ,
     credentialUrl: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=0E8AC6A0EAB4FF0E8A78B154DA20A02C00FBEBED09B0254847CE1B2AC514572C' // Certificate ID
   },
   {
