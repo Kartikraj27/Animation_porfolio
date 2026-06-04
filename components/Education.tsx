@@ -7,7 +7,6 @@ interface AquariumProps {
   colorPalette: string[]; // Group of multiple fish colors
 }
 
-// Fixed explicit structural type interface for stability
 interface FishNode {
   x: number;
   y: number;
@@ -28,7 +27,6 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // FIX: Added bulletproof fallback metrics if parentElement is momentarily missing
     const resizeCanvas = () => {
       if (canvas) {
         const parent = canvas.parentElement;
@@ -40,7 +38,6 @@ function FishAquariumBackground({ colorPalette }: AquariumProps) {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // FIX: Strongly typed array signature to prevent injection compilation errors
     const fishes: FishNode[] = []
 
     for (let i = 0; i < 10; i++) {
@@ -154,7 +151,7 @@ const EDUCATION = [
     desc: 'Completed core higher secondary curriculum with a primary concentration in Science fields (Physics, Chemistry, Mathematics). Developed analytical baseline and logical troubleshooting techniques.',
     tag: 'PCM / Science Track',
     institution: 'Mahant Hanuman Saran High School, Patna', 
-    logoUrl: '/school.png',
+    logoUrl: 'https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png', // Fallback placeholder to prevent broken local image crashes
     academicYear: '2020 - 2022',
     bgStyle: {
       background: 'linear-gradient(135deg, rgba(16, 68, 43, 0.45) 0%, rgba(5, 12, 10, 0.8) 100%)',
@@ -174,7 +171,7 @@ const EDUCATION = [
     desc: 'Completed secondary education focusing on foundational subjects including Mathematics, Science, and Social Studies. Cultivated core analytical abilities and problem-solving fundamentals.',
     tag: 'General Secondary Education',
     institution: 'Doon Senior Secondary School, Muzaffarpur', 
-    logoUrl: '/Doon.png', 
+    logoUrl: 'https://www.gecvaishali.ac.in/wp-content/uploads/2026/03/logo-1.png', // Fallback placeholder
     academicYear: '2018 - 2020',
     bgStyle: {
       background: 'linear-gradient(135deg, rgba(82, 43, 16, 0.45) 0%, rgba(10, 10, 10, 0.8) 100%)',
@@ -203,15 +200,15 @@ export default function EducationSection() {
       id="education" 
       style={{ 
         minHeight: '100vh', 
-        background: '#010916', // Deep Sea Base
+        background: '#010916', 
         padding: '120px 40px', 
         borderTop: '1px solid rgba(255,255,255,0.05)',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
-      {/* 🌊 FULL-PAGE HIGH INTENSITY 3D LIQUID WATERFLOW ENGINE */}
-      <style>{`
+      {/* 🌊 FIXED: Standard compiled Next.js style layout vector rendering */}
+      <style dangerouslySetInnerHTML={{ __html: `
         .full-page-water-matrix {
           position: absolute;
           top: 0;
@@ -223,7 +220,6 @@ export default function EducationSection() {
           overflow: hidden;
         }
 
-        /* Pure Fluid Fluid Wave Blocks covering the whole page vertically */
         .full-wave-layer {
           position: absolute;
           top: -10%;
@@ -234,28 +230,24 @@ export default function EducationSection() {
           will-change: transform;
         }
 
-        /* Wave 1: Massive Deep Water Volume Flow */
         .wave-matrix-back {
           background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,150 C300,280 600,50 900,200 C1200,350 1350,100 1500,250 L1500,600 L0,600 Z" fill="%230284c7" opacity="0.08"/></svg>');
           background-size: 50% 600px;
           animation: waveH 28s linear infinite, waveV3D 14s ease-in-out infinite alternate;
         }
 
-        /* Wave 2: Mid Streaming Ambient Aqua Fluid */
         .wave-matrix-mid {
           background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,200 C250,50 600,300 900,120 C1200,280 1380,80 1500,180 L1500,600 L0,600 Z" fill="%230ea5e9" opacity="0.06"/></svg>');
           background-size: 40% 550px;
           animation: waveHInverse 20s linear infinite, waveV3D 10s ease-in-out infinite alternate;
         }
 
-        /* Wave 3: Front Bright Cyan Shimmer Fluid Flow */
         .wave-matrix-front {
           background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none"><path d="M0,100 C350,220 550,20 850,180 C1100,300 1300,40 1500,120 L1500,600 L0,600 Z" fill="%2306b6d4" opacity="0.05"/></svg>');
           background-size: 33% 500px;
           animation: waveH 15s linear infinite, waveV3D 7s ease-in-out infinite alternate;
         }
 
-        /* Absolute Vertical Tint overlaying the full screen */
         .full-page-ocean-shading {
           position: absolute;
           top: 0;
@@ -266,7 +258,6 @@ export default function EducationSection() {
           pointer-events: none;
         }
 
-        /* Global High-Visibility Floating Water Bubbles (Spanning full height) */
         .global-fluid-bubble {
           position: absolute;
           bottom: -30px;
@@ -276,7 +267,6 @@ export default function EducationSection() {
           animation: globalBubbleRise 15s cubic-bezier(0.3, 0.1, 0.3, 1) infinite;
         }
 
-        /* Motion Vectors */
         @keyframes waveH {
           0% { transform: translate3d(0, 0, 0); }
           100% { transform: translate3d(-50%, 0, 0); }
@@ -295,7 +285,7 @@ export default function EducationSection() {
           90% { opacity: 0.2; }
           100% { transform: translateY(-1200px) translateX(110px) scale(1.4); opacity: 0; }
         }
-      `}</style>
+      `}} />
 
       {/* FULL WRAPPER LIQUID ENGINE */}
       <div className="full-page-water-matrix">
